@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-// // import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
+import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { useNavigate, useParams } from 'react-router-dom';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { Link } from 'react-router-dom';
@@ -55,8 +55,8 @@ export default function OrderScreen() {
   const params = useParams();
   const navigate = useNavigate();
   const { id: orderId } = params;
-  // // const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
-  const [{ isPending }, paypalDispatch] = true;
+  const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
+
 
   const [
     { loading, error, order, successPay, loadingDeliver, successDeliver },
@@ -118,7 +118,7 @@ export default function OrderScreen() {
     userInfo,
     orderId,
     navigate,
-    // // paypalDispatch,
+    paypalDispatch,
   ]);
 
   function createOrder(data, actions) {
@@ -288,11 +288,11 @@ export default function OrderScreen() {
                       <LoadingBox />
                     ) : (
                       <div>
-                        {/* <PayPalButtons
+                        <PayPalButtons
                           createOrder={createOrder}
                           onApprove={onApprove}
                           onError={onError}
-                        ></PayPalButtons> */}
+                        ></PayPalButtons>
                       </div>
                     )}
                   </ListGroup.Item>

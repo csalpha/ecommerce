@@ -30,7 +30,7 @@ import SellerRoute from './components/SellerRoute';
 import SellerScreen from './screens/SellerScreen';
 import SearchBox from './components/SearchBox';
 import SearchScreen from './screens/SearchScreen';
-// // import MapScreen from './screens/MapScreen';
+import MapScreen from './screens/MapScreen';
 import DashboardScreen from './screens/DashboardScreen';
 import SupportScreen from './screens/SupportScreen';
 import ChatBox from './components/ChatBox';
@@ -227,14 +227,14 @@ function App() {
                 </PrivateRoute>
               }
             />
-            {/* <Route
+            <Route
               path="/map"
               element={
                 <PrivateRoute>
                   <MapScreen />
                 </PrivateRoute>
               }
-            /> */}
+            />
 
             <Route
               path="/productlist"
