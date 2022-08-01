@@ -23,6 +23,7 @@ app.get('/api/keys/google', (req, res) => {
   res.send(process.env.GOOGLE_API_KEY || '');
 });
 
+
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/ecommerce');
 app.use('/api/seed', seedRouter);
 app.use('/api/uploads', uploadRouter);

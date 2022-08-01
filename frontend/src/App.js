@@ -31,6 +31,7 @@ import SellerScreen from './screens/SellerScreen';
 import SearchBox from './components/SearchBox';
 import SearchScreen from './screens/SearchScreen';
 import MapScreen from './screens/MapScreen';
+import AboutScreen from './screens/AboutScreen';
 import DashboardScreen from './screens/DashboardScreen';
 import SupportScreen from './screens/SupportScreen';
 import ChatBox from './components/ChatBox';
@@ -163,6 +164,12 @@ function App() {
                       </LinkContainer>
                     </NavDropdown>
                   )}
+                
+                <Link to="/about" className="nav-link">
+                    About
+                </Link>
+                
+                
                 </Nav>
               </Navbar.Collapse>
             </Container>
@@ -198,6 +205,7 @@ function App() {
           onClick={() => setSidebarIsOpen(false)}
         >
           <Routes>
+          <Route path="/about" element={<AboutScreen />}></Route>
             <Route path="/seller/:id" element={<SellerScreen />}></Route>
             <Route path="/cart" element={<CartScreen />}></Route>
             <Route path="/cart/:id" element={<CartScreen />}></Route>
