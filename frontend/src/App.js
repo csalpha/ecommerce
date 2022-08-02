@@ -315,7 +315,7 @@ function App() {
         </main>
         <footer>
           {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-          <div className="text-center">All Rights Reserved</div>
+          <div className="text-center">Copyright (c) 2022 Carlos Serôdio</div>
         </footer>
       </div>
     </BrowserRouter>
