@@ -88,7 +88,6 @@ export default function HomeScreen() {
               </Col>
             ))}
           </Row>
-
         </>
       )}
     </div>

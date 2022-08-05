@@ -32,8 +32,10 @@ import SearchBox from './components/SearchBox';
 import SearchScreen from './screens/SearchScreen';
 import MapScreen from './screens/MapScreen';
 import AboutScreen from './screens/AboutScreen';
+import ServiceScreen from './screens/ServiceScreen'
 import DashboardScreen from './screens/DashboardScreen';
 import SupportScreen from './screens/SupportScreen';
+import QuoteScreen from './screens/QuoteScreen';
 import ChatBox from './components/ChatBox';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -47,6 +49,8 @@ function App() {
 
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const { cartItems } = cart;
+
+  
   
   const signoutHandler = () => {
     ctxDispatch({ type: 'USER_SIGNOUT' });
@@ -58,6 +62,8 @@ function App() {
   };
 
   const [categories, setCategories] = useState([]);
+  
+
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -168,6 +174,16 @@ function App() {
                 <Link to="/about" className="nav-link">
                     About
                 </Link>
+
+                <Link to="/service" className="nav-link">
+                    Services
+                </Link>
+
+                <Link to="/quote" className='nav-link'>
+                  Quotes
+                </Link>
+
+
                 
                 
                 </Nav>
@@ -205,7 +221,9 @@ function App() {
           onClick={() => setSidebarIsOpen(false)}
         >
           <Routes>
-          <Route path="/about" element={<AboutScreen />}></Route>
+            <Route path="/quote" element={<QuoteScreen />}></Route>
+            <Route path="/service" element={<ServiceScreen />}></Route>
+            <Route path="/about" element={<AboutScreen />}></Route>
             <Route path="/seller/:id" element={<SellerScreen />}></Route>
             <Route path="/cart" element={<CartScreen />}></Route>
             <Route path="/cart/:id" element={<CartScreen />}></Route>
@@ -315,7 +333,7 @@ function App() {
         </main>
         <footer>
           {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-          <div className="text-center">Copyright (c) 2022 Carlos Serôdio</div>
+          <div className="text-center">Copyright @ 2022 - Carlos Serôdio</div>
         </footer>
       </div>
     </BrowserRouter>

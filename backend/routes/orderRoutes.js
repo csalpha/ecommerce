@@ -127,7 +127,9 @@ orderRouter.put(
       'user',
       'email name'
     );
+    console.log(order)
     if (order) {
+      console.log(order)
       order.isPaid = true;
       order.paidAt = Date.now();
       order.paymentResult = {
@@ -138,6 +140,7 @@ orderRouter.put(
       };
       const updatedOrder = await order.save();
       try {
+        alert("aqui")
         mailgun()
           .messages()
           .send(
@@ -187,6 +190,7 @@ orderRouter.put(
   isAdmin,
   expressAsyncHandler(async (req, res) => {
     const order = await Order.findById(req.params.id);
+    console.log(order)
     if (order) {
       order.isDelivered = true;
       order.deliveredAt = Date.now();
