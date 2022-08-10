@@ -17,10 +17,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/api/keys/paypal', (req, res) => {
-  res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
+  res.send(process.env.PAYPAL_CLIENT_ID);
 });
 app.get('/api/keys/google', (req, res) => {
-  res.send(process.env.GOOGLE_API_KEY || '');
+  res.send('AIzaSyBOFyo8nZdLYfOvapNFH5rqIsv4uQn_a9A');
 });
 
 

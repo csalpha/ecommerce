@@ -15,7 +15,6 @@ import { Store } from '../Store';
 const libs = ['places'];
 const defaultLocation = { lat: 45.516, lng: -73.56 };
 
-
 export default function MapScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
@@ -31,7 +30,6 @@ export default function MapScreen() {
   useEffect(() => {
     const fetch = async () => {
       const { data } = await Axios('/api/config/google');
-      // // console.log(data);
       setGoogleApiKey(data);
       getUserCurrentLocation();
     };
@@ -99,13 +97,12 @@ export default function MapScreen() {
     }
   };
 
- 
-  return googleApiKey ? (
+  return 'AIzaSyBOFyo8nZdLYfOvapNFH5rqIsv4uQn_a9A' ? (
     <div className="full-container">
       <LoadScript libraries={libs} googleMapsApiKey={googleApiKey}>
         <GoogleMap
           id="smaple-map"
-          mapContainerStyle={{ height: '100%', width: '100%' }}
+          mapContainerStyle={{ height: '400px', width: '100%' }}
           center={center}
           zoom={15}
           onLoad={onLoad}
