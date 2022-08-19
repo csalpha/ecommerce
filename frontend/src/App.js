@@ -5,7 +5,6 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-
 import { LinkContainer } from 'react-router-bootstrap';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -37,7 +36,9 @@ import Footer from './components/Footer';
 import SearchScreen from './screens/SearchScreen';
 import MapScreen from './screens/MapScreen';
 import AboutScreen from './screens/AboutScreen';
-import ServiceScreen from './screens/ServiceScreen'
+import ServiceScreen from './screens/ServiceScreen';
+import ContactScreen from './screens/ContactScreen';
+import CareerScreen from './screens/CareerScreen';
 import DashboardScreen from './screens/DashboardScreen';
 import SupportScreen from './screens/SupportScreen';
 import QuoteScreen from './screens/QuoteScreen';
@@ -55,7 +56,7 @@ import {
   MDBRow,
   MDBIcon,
   MDBBtn,
-  MDBListGroup, 
+  MDBListGroup,
   MDBListGroupItem,
   MDBInput,
 } from 'mdb-react-ui-kit';
@@ -67,8 +68,6 @@ function App() {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const { cartItems } = cart;
 
-  
-  
   const signoutHandler = () => {
     ctxDispatch({ type: 'USER_SIGNOUT' });
     localStorage.removeItem('userInfo');
@@ -79,8 +78,6 @@ function App() {
   };
 
   const [categories, setCategories] = useState([]);
-  
-
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -106,7 +103,7 @@ function App() {
         }
       >
         <Helmet>
-          <title>ECommerce website </title>
+          <title>CARLOS SERÔDIO </title>
         </Helmet>
         <ToastContainer position="bottom-center" limit={1} />
         <header>
@@ -119,19 +116,21 @@ function App() {
                 <i className="fas fa-bars"></i>
               </Button>
               <LinkContainer to="/">
-                <Navbar.Brand>Store</Navbar.Brand>
+                <Navbar.Brand>CARLOS SERÔDIO</Navbar.Brand>
               </LinkContainer>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <SearchBox />
                 <Nav className="me-auto">
-                <Link to="/cart" className="nav-link">
+                  <Link to="/cart" className="nav-link">
                     Cart
                     {cartItems.length > 0 && (
-                      <span className='badge rounded-pill bg-danger'> 
-                        {//use reduce function to calculate accumulator (a) and current item (c)
-                        // default value to accumulator is zero
-                        cartItems.reduce( (a, c) => a + c.quantity, 0)}
+                      <span className="badge rounded-pill bg-danger">
+                        {
+                          //use reduce function to calculate accumulator (a) and current item (c)
+                          // default value to accumulator is zero
+                          cartItems.reduce((a, c) => a + c.quantity, 0)
+                        }
                       </span>
                     )}
                   </Link>
@@ -187,22 +186,22 @@ function App() {
                       </LinkContainer>
                     </NavDropdown>
                   )}
-                
-                <Link to="/about" className="nav-link">
-                    About
-                </Link>
 
-                <Link to="/service" className="nav-link">
-                    Services
-                </Link>
+                  <NavDropdown title="About" id="basic-nav-dropdown">
+                    <LinkContainer to="/about">
+                      <NavDropdown.Item>About us</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/contact">
+                      <NavDropdown.Item>Contacts</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/career">
+                      <NavDropdown.Item>Careers</NavDropdown.Item>
+                    </LinkContainer>
+                  </NavDropdown>
 
-                <Link to="/quote" className='nav-link'>
-                  Quotes
-                </Link>
-
-
-                
-                
+                  <Link to="/quote" className="nav-link">
+                    Quotes
+                  </Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>
@@ -238,6 +237,8 @@ function App() {
           onClick={() => setSidebarIsOpen(false)}
         >
           <Routes>
+            <Route path="/contact" element={<ContactScreen />}></Route>
+            <Route path="/career" element={<CareerScreen />}></Route>
             <Route path="/quote" element={<QuoteScreen />}></Route>
             <Route path="/service" element={<ServiceScreen />}></Route>
             <Route path="/about" element={<AboutScreen />}></Route>
@@ -349,20 +350,15 @@ function App() {
           </Routes>
         </main>
 
+        {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
+        <div class="text-center">
+          <i class="fas fa-ellipsis-h"></i>
+        </div>
 
-
-
-
-            {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-            <div class="text-center"><i class="fas fa-ellipsis-h"></i></div>
-
-            <Footer />
-    </div>
-
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
 
 export default App;
-
-

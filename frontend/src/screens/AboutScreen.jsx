@@ -6,22 +6,21 @@ import { Store } from '../Store';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
-import Row from 'react-bootstrap/Row'
+import Row from 'react-bootstrap/Row';
 
 import Col from 'react-bootstrap/Col';
 import { Helmet } from 'react-helmet-async';
 
+export default function AboutScreen(props) {
+  return (
+    <div>
+      <Helmet>
+        <title>About</title>
+      </Helmet>
 
-export default function AboutScreen(props){
-    return(
-        <div>
-            <Helmet>
-                <title>About</title>
-            </Helmet>
+      <h1>About</h1>
 
-            <h1>About</h1>
-
-        {/* <a href="#" class="link-primary">Primary link</a>
+      {/* <a href="#" class="link-primary">Primary link</a>
 <a href="#" class="link-secondary">Secondary link</a>
 <a href="#" class="link-success">Success link</a>
 <a href="#" class="link-danger">Danger link</a>
@@ -30,8 +29,7 @@ export default function AboutScreen(props){
 <a href="#" class="link-light">Light link</a>
 <a href="#" class="link-dark">Dark link</a> */}
 
-        
-        <div className="my-3">
+      {/* <div className="my-3">
             <Row >
                 
                 <Col md={4}>
@@ -128,13 +126,7 @@ export default function AboutScreen(props){
                 </Col>
                 
             </Row>
-        </div>
-    
+        </div> */}
     </div>
-    )
+  );
 }
-
-
-
-
-
