@@ -17,6 +17,27 @@ export default function CareerScreen(props) {
         <title>Career</title>
       </Helmet>
       <h1>Career</h1>
+      <Row md={12}>
+        <Col md={12}>
+          <Card.Body>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+            reprehenderit maiores molestiae officia fuga, consequatur voluptas
+            dolor magni. Ullam sint accusantium hic corporis reiciendis, ipsum
+            facere saepe enim tempore voluptates. Eaque non molestias voluptate
+            explicabo placeat dolores vero dolor in eligendi perferendis tempore
+            rem libero obcaecati aperiam vel voluptates, nam corrupti laudantium
+            velit? Commodi incidunt error fuga neque adipisci voluptatem.
+            Aspernatur officiis debitis consequatur! Temporibus reprehenderit
+            porro distinctio, corporis voluptas, harum adipisci cumque deserunt
+            explicabo at laborum consequuntur, iste possimus quasi et
+            repudiandae. Expedita, nihil. Neque unde voluptatibus soluta. Nihil.
+            Repudiandae suscipit, in veritatis odio cumque dicta quasi
+            voluptatem dignissimos autem fugit debitis ducimus qui aspernatur
+            quia, unde eum quis non commodi voluptatum! Molestias voluptatibus
+            sit necessitatibus reprehenderit ipsam! Reprehenderit!
+          </Card.Body>
+        </Col>
+      </Row>
     </div>
   );
 }

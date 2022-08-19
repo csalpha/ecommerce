@@ -168,22 +168,22 @@ export default function Footer() {
           <div class="col-md-12 box">
             <ul className=" list-inline quick-links">
               <li className="list-inline-item">
-                <a className="footer-link" href="#">
+                <Link className="footer-link" to="/condictions">
                   Conditions of Use
-                </a>
+                </Link>
               </li>
               <li className="list-inline-item">
-                <a className="footer-link" href="#">
+                <Link className="footer-link" to="/privacy">
                   Privacy Notice
-                </a>
+                </Link>
               </li>
               <li className="list-inline-item">
-                <a className="footer-link" href="#">
+                <Link className="footer-link" to="/interest">
                   Interest-Based Ads
-                </a>
+                </Link>
               </li>
               <li className="list-inline-item">
-                <span class="copyright quick-links">
+                <span className="copyright quick-links">
                   {' '}
                   &copy; {new Date().getFullYear()}
                   {' CARLOS SERODIO ALL RIGHTS RESERVED'}

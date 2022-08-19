@@ -41,6 +41,10 @@ import ContactScreen from './screens/ContactScreen';
 import CareerScreen from './screens/CareerScreen';
 import DashboardScreen from './screens/DashboardScreen';
 import SupportScreen from './screens/SupportScreen';
+import CondictionsUseScreen from './screens/CondictionsUseScreen';
+import PrivacyNoticeScreen from './screens/PrivacyNoticeScreen';
+import ResourceScreen from './screens/ResourceScreen';
+import InterestBasedAdsScreen from './screens/InterestBasedAdsScreen';
 import QuoteScreen from './screens/QuoteScreen';
 import ChatBox from './components/ChatBox';
 import { toast, ToastContainer } from 'react-toastify';
@@ -90,8 +94,6 @@ function App() {
     };
     fetchCategories();
   }, [ctxDispatch]);
-
-  console.log(categories);
 
   return (
     <BrowserRouter>
@@ -187,6 +189,18 @@ function App() {
                     </NavDropdown>
                   )}
 
+                  <NavDropdown title="Sellers" id="basic-nav-dropdown">
+                    <LinkContainer to="/seller/6228e317e22eff57f1ce89fb">
+                      <NavDropdown.Item>Sony</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/seller/6228e317e22eff57f1ce89fc">
+                      <NavDropdown.Item>Microsoft</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/seller/6228e317e22eff57f1ce89fd">
+                      <NavDropdown.Item>Nintendo</NavDropdown.Item>
+                    </LinkContainer>
+                  </NavDropdown>
+
                   <NavDropdown title="About" id="basic-nav-dropdown">
                     <LinkContainer to="/about">
                       <NavDropdown.Item>About us</NavDropdown.Item>
@@ -201,6 +215,9 @@ function App() {
 
                   <Link to="/quote" className="nav-link">
                     Quotes
+                  </Link>
+                  <Link to="/resource" className="nav-link">
+                    Resources
                   </Link>
                 </Nav>
               </Navbar.Collapse>
@@ -237,6 +254,17 @@ function App() {
           onClick={() => setSidebarIsOpen(false)}
         >
           <Routes>
+            <Route
+              path="/interest"
+              element={<InterestBasedAdsScreen />}
+            ></Route>
+            <Route path="/privacy" element={<PrivacyNoticeScreen />}></Route>
+            <Route
+              path="/condictions"
+              element={<CondictionsUseScreen />}
+            ></Route>
+
+            <Route path="/resource" element={<ResourceScreen />}></Route>
             <Route path="/contact" element={<ContactScreen />}></Route>
             <Route path="/career" element={<CareerScreen />}></Route>
             <Route path="/quote" element={<QuoteScreen />}></Route>

@@ -11,8 +11,7 @@ import Axios from 'axios';
 import { getError } from '../utils';
 
 // define reducer function
-const reducer = (state, action) => 
-{
+const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
       return { ...state, loading: true };

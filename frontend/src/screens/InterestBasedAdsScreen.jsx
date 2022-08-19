@@ -11,14 +11,14 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Helmet } from 'react-helmet-async';
 
-export default function AboutScreen(props) {
+export default function InterestBasedAdsScreen() {
   return (
     <div>
       <Helmet>
-        <title>About</title>
+        <title>Interest-Based Ads</title>
       </Helmet>
 
-      <h1>About</h1>
+      <h1>Interest-Based Ads</h1>
 
       <Row md={12}>
         <Col md={12}>
