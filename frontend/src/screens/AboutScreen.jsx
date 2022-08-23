@@ -336,13 +336,69 @@ export default function AboutScreen(props) {
               <Card.Body>
                 <ListGroup variant="flush">
                   <ListGroup.Item>
-                    <a className="card-text" href="https://nextjs.org/">
-                      Next.js - Full Stack Framework
+                    <a
+                      className="card-text"
+                      href="https://nextjs.org/"
+                      target="_blank"
+                    >
+                      Next.js - The React Framework for Production
                     </a>
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <a className="card-text" href="https://nextjs.org/">
-                      Next.js - Full Stack Framework
+                    <a
+                      className="card-text"
+                      href="https://headlessui.com/"
+                      target="_blank"
+                    >
+                      Headless UI - Completely unstyled, fully accessible UI
+                      components, designed to integrate beautifully with
+                      Tailwind CSS.
+                    </a>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <a
+                      className="card-text"
+                      href="https://heroicons.com/"
+                      target="_blank"
+                    >
+                      Heroicons - SVG icons
+                    </a>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <a
+                      className="card-text"
+                      href="https://www.npmjs.com/package/js-cookie"
+                      target="_blank"
+                    >
+                      JavaScript Cookie -JavaScript API for handling cookies
+                    </a>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <a
+                      className="card-text"
+                      href="https://next-auth.js.org/"
+                      target="_blank"
+                    >
+                      Next Auth - Authentication for Next.js
+                    </a>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <a
+                      className="card-text"
+                      href="https://www.react-hook-form.com"
+                      target="_blank"
+                    >
+                      React Hook Form - Performant, flexible and extensible
+                      forms with easy-to-use validation.
+                    </a>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <a
+                      className="card-text"
+                      href="https://postcss.org/"
+                      target="_blank"
+                    >
+                      PostCSS - A tool for transforming CSS with JavaScript
                     </a>
                   </ListGroup.Item>
                 </ListGroup>
