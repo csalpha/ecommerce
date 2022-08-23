@@ -340,6 +340,11 @@ export default function AboutScreen(props) {
                       Next.js - Full Stack Framework
                     </a>
                   </ListGroup.Item>
+                  <ListGroup.Item>
+                    <a className="card-text" href="https://nextjs.org/">
+                      Next.js - Full Stack Framework
+                    </a>
+                  </ListGroup.Item>
                 </ListGroup>
               </Card.Body>
             </Card>

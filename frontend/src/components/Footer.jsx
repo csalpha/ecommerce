@@ -84,7 +84,7 @@ export default function Footer() {
               <li className="nav-item">
                 <a
                   className="link-item"
-                  href="https://wa.me/00351967389659"
+                  href="https://wa.me/351967389659"
                   target="_blank"
                 >
                   <i className="fas fa-phone"></i>+351 967 389 659
@@ -93,7 +93,7 @@ export default function Footer() {
               <li className="nav-item">
                 <a
                   className="link-item"
-                  href="https://wa.me/00351967389659"
+                  href="https://wa.me/351967389659"
                   target="_blank"
                 >
                   <i className="fas fa-comments"></i>Live chat
@@ -102,7 +102,7 @@ export default function Footer() {
               <li className="nav-item">
                 <a
                   className="link-item"
-                  href="https://wa.me/00351967389659"
+                  href="https://wa.me/351967389659"
                   target="_blank"
                 >
                   <i className="fas fa-envelope"></i>Contact us
@@ -111,7 +111,7 @@ export default function Footer() {
               <li className="nav-item">
                 <a
                   className="link-item"
-                  href="https://wa.me/00351967389659"
+                  href="https://wa.me/351967389659"
                   target="_blank"
                 >
                   <i className="fas fa-star"></i>Give feedback
@@ -152,7 +152,7 @@ export default function Footer() {
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="https://wa.me/00351967389659" target="_blank">
+                <a href="https://wa.me/351967389659" target="_blank">
                   <i class="fab fa-whatsapp"></i>
                 </a>
               </li>
