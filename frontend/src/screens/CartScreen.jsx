@@ -35,15 +35,15 @@ export default function CartScreen(props) {
   return (
     <div>
       <Helmet>
-        <title>Shopping Cart</title>
+        <title>Your Cart</title>
       </Helmet>
-      <h1>Shopping Cart</h1>
+      <h1>Cart</h1>
 
       <Row>
         <Col md={8}>
           {cartItems.length === 0 ? (
             <MessageBox>
-              Cart is empty. <Link to="/">Go Shopping</Link>
+              <p>Your Cart is empty.</p> <Link to="/">Continue Shopping</Link>
             </MessageBox>
           ) : (
             <ListGroup>

@@ -160,11 +160,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="text-center">
+        {/* <div className="row text-center">
           <i className="fas fa-ellipsis-h"></i>
-        </div>
+        </div> */}
 
-        <div className="row text-center">
+        <div className="row text-center mb-3">
           <div class="col-md-12 box">
             <ul className=" list-inline quick-links">
               <li className="list-inline-item">

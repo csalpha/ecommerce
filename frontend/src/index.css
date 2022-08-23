@@ -90,6 +90,13 @@ h3 {
   font-weight: bold;
 }
 
+.back-to-top {
+  color: #000000;
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+}
+
 /* Chatbox */
 .chatbox {
   color: #000000;

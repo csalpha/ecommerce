@@ -25,7 +25,7 @@ export default function AboutScreen(props) {
           <p>Web Developer with more than 10 years of experience</p>
           {/*frontend*/}
           <div className="my-3">
-            <Card>
+            <Card border="primary">
               <Card.Header>1. Frontend</Card.Header>
               <Card.Body>
                 <ListGroup variant="flush">
@@ -203,7 +203,7 @@ export default function AboutScreen(props) {
 
           {/*backend*/}
           <div className="my-3">
-            <Card>
+            <Card border="info">
               <Card.Header>
                 {' '}
                 <a
@@ -322,7 +322,7 @@ export default function AboutScreen(props) {
 
           {/*Full Stack*/}
           <div className="my-3">
-            <Card>
+            <Card border="success">
               <Card.Header>
                 {' '}
                 <a
