@@ -105,7 +105,7 @@ function App() {
         }
       >
         <Helmet>
-          <title>CARLOS SERÔDIO </title>
+          <title>Carlos Serôdio - Full Stack Web Developer</title>
         </Helmet>
         <ToastContainer position="bottom-center" limit={1} />
         <header>
@@ -118,7 +118,7 @@ function App() {
                 <i className="fas fa-bars"></i>
               </Button>
               <LinkContainer to="/">
-                <Navbar.Brand>CARLOS SERÔDIO</Navbar.Brand>
+                <Navbar.Brand>Full Stack Developer</Navbar.Brand>
               </LinkContainer>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">

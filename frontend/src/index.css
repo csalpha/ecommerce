@@ -288,3 +288,24 @@ footer .quick-links {
   color: white;
   padding: 2rem 0;
 }
+
+a.card-title {
+  text-decoration: none;
+  color: #000000;
+  /* font-weight: 700; */
+}
+
+a.card-title:hover {
+  text-decoration: underline;
+  color: var(--primary-orange);
+}
+
+a.card-text {
+  text-decoration: none;
+  color: #000000;
+}
+
+a.card-text:hover {
+  text-decoration: underline;
+  color: var(--primary-orange);
+}
