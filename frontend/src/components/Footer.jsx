@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="bg-dark">
+    <footer className="footer-layout">
       <div className="container">
         <div className="row text-center mb-3">
           <div className="col-md-4 mb-3">
@@ -183,11 +183,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li className="list-inline-item">
-                <span className="copyright quick-links">
-                  {' '}
-                  &copy; {new Date().getFullYear()}
-                  {' CARLOS SERODIO ALL RIGHTS RESERVED'}
-                </span>
+                <Link className="footer-link" to="/about">
+                  <span className="copyright quick-links">
+                    {' '}
+                    &copy; {new Date().getFullYear()}
+                    {' CARLOS SERODIO ALL RIGHTS RESERVED'}
+                  </span>
+                </Link>
               </li>
             </ul>
           </div>

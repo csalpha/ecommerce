@@ -6,6 +6,7 @@ body,
 
 :root {
   --link-light-grey: #6c757d;
+  --link-grey: #ddd;
   --primary-orange: #fec503;
   --footer-background-light-grey: #212529;
   --footer-background-grey: #1a1d20;
@@ -21,6 +22,7 @@ li {
   background-color: #f0c040;
   color: #000000;
 }
+
 .navbar-brand {
   font-weight: bold;
 }
@@ -187,7 +189,7 @@ button.thumbnail {
 
 .footer-link:hover {
   text-decoration: underline;
-  color: var(--link-light-grey);
+  color: var(--link-grey);
 }
 
 a:hover {
@@ -202,7 +204,10 @@ a:hover {
 
 footer {
   padding: 2rem 0;
-  /* background-color: #212529 */
+}
+
+.footer-layout {
+  background-color: rgb(13, 20, 30);
 }
 
 .footer-column:not(:first-child) {
@@ -315,4 +320,8 @@ a.card-text {
 a.card-text:hover {
   text-decoration: underline;
   color: var(--primary-orange);
+}
+
+.navigator {
+  background-color: rgb(19, 25, 33);
 }

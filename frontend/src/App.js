@@ -242,9 +242,9 @@ function App() {
                   <Link to="/quote" className="nav-link">
                     Quotes
                   </Link>
-                  <Link to="/resource" className="nav-link">
+                  {/* <Link to="/resource" className="nav-link">
                     Resources
-                  </Link>
+                  </Link> */}
                 </Nav>
               </Navbar.Collapse>
             </Container>
