@@ -1,9 +1,44 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import {
+  MDBFooter,
+  MDBContainer,
+  MDBCol,
+  MDBRow,
+  MDBIcon,
+  MDBBtn,
+  MDBListGroup,
+  MDBListGroupItem,
+  MDBInput,
+} from 'mdb-react-ui-kit';
+
+let mybutton;
+
+window.onscroll = function () {
+  mybutton = document.getElementById('btn-back-to-top');
+  scrollFunction(mybutton);
+};
+
+function scrollFunction(mybutton) {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = 'block';
+  } else {
+    mybutton.style.display = 'none';
+  }
+}
+
+function backToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 
 export default function Footer() {
   return (
     <footer className="footer-layout">
+      <Button onClick={backToTop} id="btn-back-to-top" className="back-to-top">
+        <MDBIcon fas icon="arrow-up" />
+      </Button>
       <div className="container">
         <div className="row text-center mb-3">
           <div className="col-md-4 mb-3">
@@ -13,6 +48,7 @@ export default function Footer() {
               </li>
               <li className="">
                 <Link
+                  onClick={backToTop}
                   to="/seller/6228e317e22eff57f1ce89fb"
                   className="link-item"
                 >
@@ -21,6 +57,7 @@ export default function Footer() {
               </li>
               <li class="nav-item">
                 <Link
+                  onClick={backToTop}
                   to="/seller/6228e317e22eff57f1ce89fc"
                   className="link-item"
                 >
@@ -29,6 +66,7 @@ export default function Footer() {
               </li>
               <li class="nav-item">
                 <Link
+                  onClick={backToTop}
                   to="/seller/6228e317e22eff57f1ce89fd"
                   className="link-item"
                 >
@@ -54,17 +92,17 @@ export default function Footer() {
                 <span class="footer-title">About</span>
               </li>
               <li className="nav-item">
-                <Link to="/about" className="link-item">
+                <Link onClick={backToTop} to="/about" className="link-item">
                   About us
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/career" className="link-item">
+                <Link onClick={backToTop} to="/career" className="link-item">
                   Career
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/contact" className="link-item">
+                <Link onClick={backToTop} to="/contact" className="link-item">
                   Contact
                 </Link>
               </li>
@@ -168,17 +206,25 @@ export default function Footer() {
           <div class="col-md-12 box">
             <ul className=" list-inline quick-links">
               <li className="list-inline-item">
-                <Link className="footer-link" to="/condictions">
+                <Link
+                  className="footer-link"
+                  onClick={backToTop}
+                  to="/condictions"
+                >
                   Conditions of Use
                 </Link>
               </li>
               <li className="list-inline-item">
-                <Link className="footer-link" to="/privacy">
+                <Link className="footer-link" onClick={backToTop} to="/privacy">
                   Privacy Notice
                 </Link>
               </li>
               <li className="list-inline-item">
-                <Link className="footer-link" to="/interest">
+                <Link
+                  className="footer-link"
+                  onClick={backToTop}
+                  to="/interest"
+                >
                   Interest-Based Ads
                 </Link>
               </li>
