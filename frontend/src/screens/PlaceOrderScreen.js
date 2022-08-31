@@ -97,6 +97,7 @@ export default function PlaceOrderScreen(props) {
         <title>Preview Order</title>
       </Helmet>
       <h1 className="my-3">Preview Order</h1>
+
       <Row>
         <Col md={8}>
           <Card className="mb-3">

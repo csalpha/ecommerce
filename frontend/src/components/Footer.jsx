@@ -49,7 +49,7 @@ export default function Footer() {
               <li className="">
                 <Link
                   onClick={backToTop}
-                  to="/seller/6228e317e22eff57f1ce89fb"
+                  to="/seller/630f79417a42a911d72fc7f5"
                   className="link-item"
                 >
                   Sony
@@ -58,7 +58,7 @@ export default function Footer() {
               <li class="nav-item">
                 <Link
                   onClick={backToTop}
-                  to="/seller/6228e317e22eff57f1ce89fc"
+                  to="/seller/630f79417a42a911d72fc7f6"
                   className="link-item"
                 >
                   Microsoft
@@ -67,7 +67,7 @@ export default function Footer() {
               <li class="nav-item">
                 <Link
                   onClick={backToTop}
-                  to="/seller/6228e317e22eff57f1ce89fd"
+                  to="/seller/630f79417a42a911d72fc7f7"
                   className="link-item"
                 >
                   Nintendo
