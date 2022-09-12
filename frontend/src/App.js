@@ -413,8 +413,8 @@ function App() {
         </main>
 
         {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-        <div class="text-center">
-          <i class="fas fa-ellipsis-h"></i>
+        <div className="text-center">
+          <i className="fas fa-ellipsis-h"></i>
         </div>
 
         <Footer />
