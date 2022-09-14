@@ -35,8 +35,34 @@ li {
   color: #000000;
 }
 
+.navbar {
+  /* background-color: #c4c0bc; */
+  /* background-color: rgba(0, 0, 0, 0.92); */
+  /* background-color: #1d1d1f; */
+  background-color: #000000;
+}
+
 .navbar-brand {
+  color: #ffffff;
   font-weight: bold;
+}
+
+.fabars {
+  color: #ffffff;
+}
+
+.faEllipsisVertical {
+  color: #ffffff;
+}
+
+.navbar-toggler {
+  /* color: #ffffff; */
+  /* background-color: #ffffff; */
+}
+
+.navbar-brand:focus,
+.navbar-brand:hover {
+  color: #ffffff;
 }
 
 /* .side-navbar {
@@ -58,7 +84,10 @@ li {
   height: 100%;
   position: fixed;
   left: -33%;
-  background-color: #100901;
+  /* background-color: #c4c0bc; */
+  background-color: #000000;
+  /* background-color: rgba(0, 0, 0, 0.92); */
+  /* background-color: #100901; */
   transition: 0.5s;
 }
 
@@ -233,7 +262,10 @@ footer {
 }
 
 .footer-layout {
-  background-color: rgb(13, 20, 30);
+  /* background-color: rgb(13, 20, 30); */
+  /* background-color: #c4c0bc; */
+  /* background-color: rgba(0, 0, 0, 0.92); */
+  background-color: #1f2024;
 }
 
 .footer-column:not(:first-child) {
@@ -249,11 +281,22 @@ footer {
 /* .nav-item {
   } */
 .nav-link {
+  color: #ffffff;
   padding: 0.1rem 0;
 }
 
 span.nav-link {
-  color: var(----link-light-grey);
+  /* color: var(----link-light-grey); */
+  color: #ffffff;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+  color: #ffffff;
+}
+
+span.nav-link:active {
+  color: #ffffff;
 }
 
 span.footer-title {
@@ -350,4 +393,56 @@ a.card-text:hover {
 
 .navigator {
   background-color: rgb(19, 25, 33);
+}
+
+navbar-nav .nav-link.active,
+.navbar-nav .show > .nav-link {
+  color: #ffffff;
+}
+
+a {
+  @apply text-blue-600 hover:text-blue-800;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.card {
+  @apply mb-5  block   rounded-lg border border-gray-200  shadow-md;
+}
+
+/* create primary-button class */
+.primary-button {
+  @apply rounded bg-amber-300 py-2 px-4 shadow outline-none hover:bg-amber-400  active:bg-amber-500;
+}
+
+/* create default-button class */
+.default-button {
+  @apply rounded bg-gray-100 py-2  px-4 text-black shadow outline-none hover:bg-gray-200  active:bg-gray-300;
+}
+
+/* add css classes for input boxes */
+
+select,
+textarea {
+  @apply rounded border p-2  outline-none ring-indigo-300  focus:ring;
+}
+
+.dropdown-link {
+  @apply flex p-2 hover:bg-gray-200;
+}
+
+/* alert-error class from tailwin */
+.alert-error {
+  /*margin-vertically-3 |rounded large for border | 
+  background-color-red-100 | padding-3 | set text-red-700*/
+  @apply my-3 rounded-lg bg-red-100 p-3 text-red-700;
+}
+
+/* alert-success class from tailwin */
+.alert-success {
+  /*margin-vertically-3 |rounded large for border | 
+  background-color-green-100 | padding-3 | set text-green-700*/
+  @apply my-3 rounded-lg bg-green-100 p-3 text-green-700;
 }
