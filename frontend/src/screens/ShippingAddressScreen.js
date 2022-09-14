@@ -31,6 +31,8 @@ export default function ShippingAddressScreen() {
   const [country, setCountry] = useState(shippingAddress.country || '');
 
   const submitHandler = (e) => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     e.preventDefault();
     const newLat = addressMap ? addressMap.lat : lat;
     const newLng = addressMap ? addressMap.lng : lng;

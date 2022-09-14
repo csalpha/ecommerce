@@ -22,6 +22,8 @@ export default function PaymentMethodScreen() {
   );
 
   const submitHandler = (e) => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     e.preventDefault();
     ctxDispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName });
     localStorage.setItem('paymentMethod', paymentMethodName);

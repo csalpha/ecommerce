@@ -13,7 +13,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import Badge from 'react-bootstrap/Badge'
+import Badge from 'react-bootstrap/Badge';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import LoadingBox from '../components/LoadingBox';
@@ -48,7 +48,7 @@ export default function ProductScreen() {
   let reviewsRef = useRef();
 
   // to add a item to the cart, i need to dispatch an action on the react context
-  
+
   // Get the context
   // Rename dispatch to 'ctxDispatch' - context dispatch
   // by using useContext we can have access to the state of the context
@@ -88,10 +88,12 @@ export default function ProductScreen() {
     fetchData();
   }, [dispatch, slug]);
 
-  // to add a item to the cart i need to dispatch 
+  // to add a item to the cart i need to dispatch
   // an action on the react context
 
   const addToCartHandler = async () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     // exist item
     const existItem = cart.cartItems.find((x) => x._id === product._id);
 
@@ -106,7 +108,7 @@ export default function ProductScreen() {
       window.alert('Sorry. Product is out of stock');
       return;
     }
-    // dispatch action 
+    // dispatch action
     // payload - pass the product and the quantity
     ctxDispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
     navigate('/cart');
@@ -144,7 +146,7 @@ export default function ProductScreen() {
       dispatch({ type: 'CREATE_FAIL' });
     }
   };
-  
+
   return loading ? (
     <LoadingBox></LoadingBox>
   ) : error ? (

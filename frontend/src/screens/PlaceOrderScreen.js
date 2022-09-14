@@ -61,6 +61,8 @@ export default function PlaceOrderScreen(props) {
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
   const placeOrderHandler = async () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     try {
       dispatch({ type: 'CREATE_REQUEST' });
       const { data } = await Axios.post(

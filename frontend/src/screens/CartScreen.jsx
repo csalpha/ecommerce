@@ -30,6 +30,8 @@ export default function CartScreen(props) {
   };
 
   const checkoutHandler = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     navigate('/signin?redirect=/shipping');
   };
   return (

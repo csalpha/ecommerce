@@ -57,7 +57,6 @@ export default function OrderScreen() {
   const { id: orderId } = params;
   const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
 
-
   const [
     { loading, error, order, successPay, loadingDeliver, successDeliver },
     dispatch,
@@ -160,6 +159,8 @@ export default function OrderScreen() {
   }
 
   async function deliverOrderHandler() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     try {
       dispatch({ type: 'DELIVER_REQUEST' });
       const { data } = await Axios.put(
