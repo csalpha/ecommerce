@@ -52,6 +52,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Store } from './Store';
 import { getError } from './utils';
 import Axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faBars,
+  faCircleXmark,
+  faEllipsisVertical,
+  faMoon,
+} from '@fortawesome/free-solid-svg-icons';
 
 import {
   MDBFooter,
@@ -111,6 +118,7 @@ function App() {
         <header>
           <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
+              {/* SideBar Button */}
               <Button
                 variant="dark"
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
@@ -120,7 +128,9 @@ function App() {
               <LinkContainer to="/">
                 <Navbar.Brand>Full Stack Developer</Navbar.Brand>
               </LinkContainer>
+              {/* Navbar.Toggle */}
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              {/* Navbar.Collapse */}
               <Navbar.Collapse id="basic-navbar-nav">
                 <SearchBox />
                 <Nav className="me-auto">
@@ -219,6 +229,9 @@ function App() {
                   <Link to="/quote" className="nav-link">
                     Quotes
                   </Link>
+                  <Link to="" className="nav-link">
+                    <FontAwesomeIcon icon={faMoon} />
+                  </Link>
                   {/* <Link to="/resource" className="nav-link">
                     Resources
                   </Link> */}
@@ -228,6 +241,7 @@ function App() {
           </Navbar>
         </header>
 
+        {/* side bar */}
         <div
           className={
             sidebarIsOpen
@@ -235,6 +249,13 @@ function App() {
               : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
           }
         >
+          {/* <div
+          className={
+            sidebarIsOpen
+              ? ' fixed top-0 left-0 z-40 h-full w-[20rem] bg-gray-300 p-10 duration-300  ease-in-out dark:bg-gray-800 translate-x-0'
+              : 'hidden'
+          }
+        > */}
           <Nav className="flex-column text-white w-100 p-2">
             <Nav.Item>
               <strong>Categories</strong>
