@@ -229,7 +229,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li className="list-inline-item">
-                <Link className="footer-link" to="/about">
+                <Link className="footer-link" onClick={backToTop} to="/about">
                   <span className="copyright quick-links">
                     {' '}
                     &copy; {new Date().getFullYear()}

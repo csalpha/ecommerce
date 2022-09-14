@@ -112,7 +112,7 @@ function App() {
         }
       >
         <Helmet>
-          <title>Carlos Serôdio - Full Stack Web Developer</title>
+          <title>React App</title>
         </Helmet>
         <ToastContainer position="bottom-center" limit={1} />
         <header>
@@ -126,7 +126,7 @@ function App() {
                 <i className="fas fa-bars"></i>
               </Button>
               <LinkContainer to="/">
-                <Navbar.Brand>Full Stack Developer</Navbar.Brand>
+                <Navbar.Brand>React App</Navbar.Brand>
               </LinkContainer>
               {/* Navbar.Toggle */}
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
