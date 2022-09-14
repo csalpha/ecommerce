@@ -255,37 +255,38 @@ function App() {
             {/* </nav> */}
           </Navbar>
           {/* side bar */}
-          <div
-            className={
-              sidebarIsOpen
-                ? ' active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
-                : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
-            }
-          >
-            {/* <div
+        </header>
+        <div
+          className={
+            sidebarIsOpen
+              ? ' active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
+              : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
+          }
+        >
+          {/* <div
           className={
             sidebarIsOpen
               ? ' fixed top-0 left-0 z-40 h-full w-[20rem] bg-gray-300 p-10 duration-300  ease-in-out dark:bg-gray-800 translate-x-0'
               : 'hidden'
           }
         > */}
-            <Nav className="flex-column text-white w-100 p-2">
-              <Nav.Item>
-                <strong>Categories</strong>
+          <Nav className="flex-column text-white w-100 p-2">
+            <Nav.Item>
+              <strong>Categories</strong>
+            </Nav.Item>
+            {categories.map((category) => (
+              <Nav.Item key={category}>
+                <LinkContainer
+                  to={`/search?category=${category}`}
+                  onClick={() => setSidebarIsOpen(false)}
+                >
+                  <Nav.Link>{category}</Nav.Link>
+                </LinkContainer>
               </Nav.Item>
-              {categories.map((category) => (
-                <Nav.Item key={category}>
-                  <LinkContainer
-                    to={`/search?category=${category}`}
-                    onClick={() => setSidebarIsOpen(false)}
-                  >
-                    <Nav.Link>{category}</Nav.Link>
-                  </LinkContainer>
-                </Nav.Item>
-              ))}
-            </Nav>
-          </div>
-        </header>
+            ))}
+          </Nav>
+        </div>
+
         <main
           className="container mt-3"
           onClick={() => setSidebarIsOpen(false)}
