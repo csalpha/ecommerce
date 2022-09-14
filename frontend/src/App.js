@@ -203,13 +203,13 @@ function App() {
                   )}
 
                   <NavDropdown title="Sellers" id="basic-nav-dropdown">
-                    <LinkContainer to="/seller/6228e317e22eff57f1ce89fb">
+                    <LinkContainer to="/seller/630f79417a42a911d72fc7f5">
                       <NavDropdown.Item>Sony</NavDropdown.Item>
                     </LinkContainer>
-                    <LinkContainer to="/seller/6228e317e22eff57f1ce89fc">
+                    <LinkContainer to="/seller/630f79417a42a911d72fc7f6">
                       <NavDropdown.Item>Microsoft</NavDropdown.Item>
                     </LinkContainer>
-                    <LinkContainer to="/seller/6228e317e22eff57f1ce89fd">
+                    <LinkContainer to="/seller/630f79417a42a911d72fc7f7">
                       <NavDropdown.Item>Nintendo</NavDropdown.Item>
                     </LinkContainer>
                   </NavDropdown>
