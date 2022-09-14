@@ -115,177 +115,177 @@ function App() {
           <title>React App</title>
         </Helmet>
         <ToastContainer position="bottom-center" limit={1} />
-        <header></header>
-        {/* <Navbar bg="dark" variant="dark" expand="lg"> */}
-        <Navbar bg="" variant="" expand="lg">
-          {/* <nav className="navbar navbar-expand-lg navbar-light bg-light"> */}
-          <Container>
-            {/* SideBar Button */}
-            <span
-              className="fabars"
-              onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
-            >
-              <FontAwesomeIcon icon={faBars} />
-            </span>
-            <LinkContainer to="/">
-              <Navbar.Brand>React App</Navbar.Brand>
-            </LinkContainer>
-            {/* Navbar.Toggle */}
-            {/* <Navbar.Toggle
+        <header>
+          {/* <Navbar bg="dark" variant="dark" expand="lg"> */}
+          <Navbar bg="" variant="" expand="lg">
+            {/* <nav className="navbar navbar-expand-lg navbar-light bg-light"> */}
+            <Container>
+              {/* SideBar Button */}
+              <span
+                className="fabars"
+                onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
+              >
+                <FontAwesomeIcon icon={faBars} />
+              </span>
+              <LinkContainer to="/">
+                <Navbar.Brand>React App</Navbar.Brand>
+              </LinkContainer>
+              {/* Navbar.Toggle */}
+              {/* <Navbar.Toggle
               className="toggle"
               bg="light"
               variant="light"
               aria-controls="basic-navbar-nav"
             /> */}
-            <Navbar.Toggle aria-controls="basic-navbar-nav">
-              <FontAwesomeIcon
-                className="faEllipsisVertical"
-                icon={faEllipsisVertical}
-              />
-            </Navbar.Toggle>
-            {/* <FontAwesomeIcon icon={faEllipsisVertical} /> */}
-            {/* Navbar.Collapse */}
-            <Navbar.Collapse id="basic-navbar-nav">
-              <SearchBox />
-              <Nav className="me-auto">
-                <Link to="/cart" className="nav-link">
-                  Cart
-                  {cartItems.length > 0 && (
-                    <span className="badge rounded-pill bg-danger">
-                      {
-                        //use reduce function to calculate accumulator (a) and current item (c)
-                        // default value to accumulator is zero
-                        cartItems.reduce((a, c) => a + c.quantity, 0)
-                      }
-                    </span>
-                  )}
-                </Link>
-                {userInfo ? (
-                  <NavDropdown
-                    title={'Hello, ' + userInfo.name}
-                    id="basic-nav-dropdown"
-                  >
-                    <LinkContainer to="/profile">
-                      <NavDropdown.Item>User Profile</NavDropdown.Item>
-                    </LinkContainer>
-                    <LinkContainer to="/orderhistory">
-                      <NavDropdown.Item>Order History</NavDropdown.Item>
-                    </LinkContainer>
-
-                    <NavDropdown.Divider />
-                    <Link
-                      className="dropdown-item"
-                      to="#signout"
-                      onClick={signoutHandler}
-                    >
-                      Sign Out
-                    </Link>
-                  </NavDropdown>
-                ) : (
-                  <Link className="nav-link" to="/signin">
-                    Sign In
+              <Navbar.Toggle aria-controls="basic-navbar-nav">
+                <FontAwesomeIcon
+                  className="faEllipsisVertical"
+                  icon={faEllipsisVertical}
+                />
+              </Navbar.Toggle>
+              {/* <FontAwesomeIcon icon={faEllipsisVertical} /> */}
+              {/* Navbar.Collapse */}
+              <Navbar.Collapse id="basic-navbar-nav">
+                <SearchBox />
+                <Nav className="me-auto">
+                  <Link to="/cart" className="nav-link">
+                    Cart
+                    {cartItems.length > 0 && (
+                      <span className="badge rounded-pill bg-danger">
+                        {
+                          //use reduce function to calculate accumulator (a) and current item (c)
+                          // default value to accumulator is zero
+                          cartItems.reduce((a, c) => a + c.quantity, 0)
+                        }
+                      </span>
+                    )}
                   </Link>
-                )}
-                {userInfo && userInfo.isSeller && (
-                  <NavDropdown title="Seller" id="basic-nav-dropdown">
-                    <LinkContainer to="/productlist/seller">
-                      <NavDropdown.Item>Products</NavDropdown.Item>
+                  {userInfo ? (
+                    <NavDropdown
+                      title={'Hello, ' + userInfo.name}
+                      id="basic-nav-dropdown"
+                    >
+                      <LinkContainer to="/profile">
+                        <NavDropdown.Item>User Profile</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/orderhistory">
+                        <NavDropdown.Item>Order History</NavDropdown.Item>
+                      </LinkContainer>
+
+                      <NavDropdown.Divider />
+                      <Link
+                        className="dropdown-item"
+                        to="#signout"
+                        onClick={signoutHandler}
+                      >
+                        Sign Out
+                      </Link>
+                    </NavDropdown>
+                  ) : (
+                    <Link className="nav-link" to="/signin">
+                      Sign In
+                    </Link>
+                  )}
+                  {userInfo && userInfo.isSeller && (
+                    <NavDropdown title="Seller" id="basic-nav-dropdown">
+                      <LinkContainer to="/productlist/seller">
+                        <NavDropdown.Item>Products</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/orderlist/seller">
+                        <NavDropdown.Item>Orders</NavDropdown.Item>
+                      </LinkContainer>
+                    </NavDropdown>
+                  )}
+                  {userInfo && userInfo.isAdmin && (
+                    <NavDropdown title="Admin" id="basic-nav-dropdown">
+                      <LinkContainer to="/dashboard">
+                        <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/productlist">
+                        <NavDropdown.Item>Products</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/orderlist">
+                        <NavDropdown.Item>Orders</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/userlist">
+                        <NavDropdown.Item>Users</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/support">
+                        <NavDropdown.Item>Support</NavDropdown.Item>
+                      </LinkContainer>
+                    </NavDropdown>
+                  )}
+
+                  <NavDropdown title="Sellers" id="basic-nav-dropdown">
+                    <LinkContainer to="/seller/630f79417a42a911d72fc7f5">
+                      <NavDropdown.Item>Sony</NavDropdown.Item>
                     </LinkContainer>
-                    <LinkContainer to="/orderlist/seller">
-                      <NavDropdown.Item>Orders</NavDropdown.Item>
+                    <LinkContainer to="/seller/630f79417a42a911d72fc7f6">
+                      <NavDropdown.Item>Microsoft</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/seller/630f79417a42a911d72fc7f7">
+                      <NavDropdown.Item>Nintendo</NavDropdown.Item>
                     </LinkContainer>
                   </NavDropdown>
-                )}
-                {userInfo && userInfo.isAdmin && (
-                  <NavDropdown title="Admin" id="basic-nav-dropdown">
-                    <LinkContainer to="/dashboard">
-                      <NavDropdown.Item>Dashboard</NavDropdown.Item>
+
+                  <NavDropdown title="About" id="basic-nav-dropdown">
+                    <LinkContainer to="/about">
+                      <NavDropdown.Item>About us</NavDropdown.Item>
                     </LinkContainer>
-                    <LinkContainer to="/productlist">
-                      <NavDropdown.Item>Products</NavDropdown.Item>
+                    <LinkContainer to="/contact">
+                      <NavDropdown.Item>Contacts</NavDropdown.Item>
                     </LinkContainer>
-                    <LinkContainer to="/orderlist">
-                      <NavDropdown.Item>Orders</NavDropdown.Item>
-                    </LinkContainer>
-                    <LinkContainer to="/userlist">
-                      <NavDropdown.Item>Users</NavDropdown.Item>
-                    </LinkContainer>
-                    <LinkContainer to="/support">
-                      <NavDropdown.Item>Support</NavDropdown.Item>
+                    <LinkContainer to="/career">
+                      <NavDropdown.Item>Careers</NavDropdown.Item>
                     </LinkContainer>
                   </NavDropdown>
-                )}
 
-                <NavDropdown title="Sellers" id="basic-nav-dropdown">
-                  <LinkContainer to="/seller/630f79417a42a911d72fc7f5">
-                    <NavDropdown.Item>Sony</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to="/seller/630f79417a42a911d72fc7f6">
-                    <NavDropdown.Item>Microsoft</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to="/seller/630f79417a42a911d72fc7f7">
-                    <NavDropdown.Item>Nintendo</NavDropdown.Item>
-                  </LinkContainer>
-                </NavDropdown>
-
-                <NavDropdown title="About" id="basic-nav-dropdown">
-                  <LinkContainer to="/about">
-                    <NavDropdown.Item>About us</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to="/contact">
-                    <NavDropdown.Item>Contacts</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to="/career">
-                    <NavDropdown.Item>Careers</NavDropdown.Item>
-                  </LinkContainer>
-                </NavDropdown>
-
-                <Link to="/quote" className="nav-link">
-                  Quotes
-                </Link>
-                <Link to="" className="nav-link">
-                  <FontAwesomeIcon icon={faMoon} />
-                </Link>
-                {/* <Link to="/resource" className="nav-link">
+                  <Link to="/quote" className="nav-link">
+                    Quotes
+                  </Link>
+                  <Link to="" className="nav-link">
+                    <FontAwesomeIcon icon={faMoon} />
+                  </Link>
+                  {/* <Link to="/resource" className="nav-link">
                     Resources
                   </Link> */}
-              </Nav>
-            </Navbar.Collapse>
-          </Container>
-          {/* </nav> */}
-        </Navbar>
-        {/* side bar */}
-        <div
-          className={
-            sidebarIsOpen
-              ? ' active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
-              : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
-          }
-        >
-          {/* <div
+                </Nav>
+              </Navbar.Collapse>
+            </Container>
+            {/* </nav> */}
+          </Navbar>
+          {/* side bar */}
+          <div
+            className={
+              sidebarIsOpen
+                ? ' active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
+                : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
+            }
+          >
+            {/* <div
           className={
             sidebarIsOpen
               ? ' fixed top-0 left-0 z-40 h-full w-[20rem] bg-gray-300 p-10 duration-300  ease-in-out dark:bg-gray-800 translate-x-0'
               : 'hidden'
           }
         > */}
-          <Nav className="flex-column text-white w-100 p-2">
-            <Nav.Item>
-              <strong>Categories</strong>
-            </Nav.Item>
-            {categories.map((category) => (
-              <Nav.Item key={category}>
-                <LinkContainer
-                  to={`/search?category=${category}`}
-                  onClick={() => setSidebarIsOpen(false)}
-                >
-                  <Nav.Link>{category}</Nav.Link>
-                </LinkContainer>
+            <Nav className="flex-column text-white w-100 p-2">
+              <Nav.Item>
+                <strong>Categories</strong>
               </Nav.Item>
-            ))}
-          </Nav>
-        </div>
-
+              {categories.map((category) => (
+                <Nav.Item key={category}>
+                  <LinkContainer
+                    to={`/search?category=${category}`}
+                    onClick={() => setSidebarIsOpen(false)}
+                  >
+                    <Nav.Link>{category}</Nav.Link>
+                  </LinkContainer>
+                </Nav.Item>
+              ))}
+            </Nav>
+          </div>
+        </header>
         <main
           className="container mt-3"
           onClick={() => setSidebarIsOpen(false)}
