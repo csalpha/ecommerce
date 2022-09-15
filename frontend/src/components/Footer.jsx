@@ -202,8 +202,8 @@ export default function Footer() {
           <i className="fas fa-ellipsis-h"></i>
         </div> */}
 
-        <div className="row text-center mb-3">
-          <div class="col-md-12 box">
+        <div className="footer-layout row text-center mb-3">
+          <div className="col-md-12 box">
             <ul className=" list-inline quick-links">
               <li className="list-inline-item">
                 <Link

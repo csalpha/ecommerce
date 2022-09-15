@@ -175,7 +175,7 @@ export default function ProductScreen() {
                 numReviews={product.numReviews}
               ></Rating>
             </ListGroup.Item>
-            <ListGroup.Item>Pirce : €{product.price}</ListGroup.Item>
+            <ListGroup.Item>Price : {product.price} €</ListGroup.Item>
             <ListGroup.Item>
               <Row xs={1} md={2} className="g-2">
                 {[product.image, ...product.images].map((x) => (
@@ -219,7 +219,7 @@ export default function ProductScreen() {
                 <ListGroup.Item>
                   <Row>
                     <Col>Pirce:</Col>
-                    <Col>€{product.price}</Col>
+                    <Col>{product.price} €</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>

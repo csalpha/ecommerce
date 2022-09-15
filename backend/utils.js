@@ -65,7 +65,6 @@ export const mailgun = () =>
     domain: process.env.MAILGUN_DOMIAN,
     // // apiKey: '6790bbbd1fd1648862cbc364c371aaf3-1b237f8b-480880f1',
     // // domain: 'sandboxd2ec4f7116544e0b8d139ceaa50ae2de.mailgun.org',
-
   });
 
 export const payOrderEmailTemplate = (order) => {
@@ -88,7 +87,7 @@ export const payOrderEmailTemplate = (order) => {
     <tr>
     <td>${item.name}</td>
     <td align="center">${item.quantity}</td>
-    <td align="right"> €${item.price.toFixed(2)}</td>
+    <td align="right"> ${item.price.toFixed(2)} €</td>
     </tr>
   `
     )
@@ -97,19 +96,19 @@ export const payOrderEmailTemplate = (order) => {
   <tfoot>
   <tr>
   <td colspan="2">Items Price:</td>
-  <td align="right"> €${order.itemsPrice.toFixed(2)}</td>
+  <td align="right"> ${order.itemsPrice.toFixed(2)} €</td>
   </tr>
   <tr>
   <td colspan="2">Tax Price:</td>
-  <td align="right"> €${order.taxPrice.toFixed(2)}</td>
+  <td align="right"> ${order.taxPrice.toFixed(2)} €</td>
   </tr>
   <tr>
   <td colspan="2">Shipping Price:</td>
-  <td align="right"> €${order.shippingPrice.toFixed(2)}</td>
+  <td align="right"> ${order.shippingPrice.toFixed(2)} €</td>
   </tr>
   <tr>
   <td colspan="2"><strong>Total Price:</strong></td>
-  <td align="right"><strong> €${order.totalPrice.toFixed(2)}</strong></td>
+  <td align="right"><strong> ${order.totalPrice.toFixed(2)} €</strong></td>
   </tr>
   <tr>
   <td colspan="2">Payment Method:</td>

@@ -143,8 +143,10 @@ function App() {
                   icon={faEllipsisVertical}
                 />
               </Navbar.Toggle>
+
               {/* <FontAwesomeIcon icon={faEllipsisVertical} /> */}
               {/* Navbar.Collapse */}
+
               <Navbar.Collapse id="basic-navbar-nav">
                 <SearchBox />
                 <Nav className="me-auto">
@@ -160,6 +162,7 @@ function App() {
                       </span>
                     )}
                   </Link>
+
                   {userInfo ? (
                     <NavDropdown
                       title={'Hello, ' + userInfo.name}
@@ -168,6 +171,7 @@ function App() {
                       <LinkContainer to="/profile">
                         <NavDropdown.Item>User Profile</NavDropdown.Item>
                       </LinkContainer>
+                      <NavDropdown.Divider />
                       <LinkContainer to="/orderhistory">
                         <NavDropdown.Item>Order History</NavDropdown.Item>
                       </LinkContainer>
@@ -191,6 +195,7 @@ function App() {
                       <LinkContainer to="/productlist/seller">
                         <NavDropdown.Item>Products</NavDropdown.Item>
                       </LinkContainer>
+                      <NavDropdown.Divider />
                       <LinkContainer to="/orderlist/seller">
                         <NavDropdown.Item>Orders</NavDropdown.Item>
                       </LinkContainer>
@@ -201,15 +206,19 @@ function App() {
                       <LinkContainer to="/dashboard">
                         <NavDropdown.Item>Dashboard</NavDropdown.Item>
                       </LinkContainer>
+                      <NavDropdown.Divider />
                       <LinkContainer to="/productlist">
                         <NavDropdown.Item>Products</NavDropdown.Item>
                       </LinkContainer>
+                      <NavDropdown.Divider />
                       <LinkContainer to="/orderlist">
                         <NavDropdown.Item>Orders</NavDropdown.Item>
                       </LinkContainer>
+                      <NavDropdown.Divider />
                       <LinkContainer to="/userlist">
                         <NavDropdown.Item>Users</NavDropdown.Item>
                       </LinkContainer>
+                      <NavDropdown.Divider />
                       <LinkContainer to="/support">
                         <NavDropdown.Item>Support</NavDropdown.Item>
                       </LinkContainer>
@@ -220,9 +229,11 @@ function App() {
                     <LinkContainer to="/seller/630f79417a42a911d72fc7f5">
                       <NavDropdown.Item>Sony</NavDropdown.Item>
                     </LinkContainer>
+                    <NavDropdown.Divider />
                     <LinkContainer to="/seller/630f79417a42a911d72fc7f6">
                       <NavDropdown.Item>Microsoft</NavDropdown.Item>
                     </LinkContainer>
+                    <NavDropdown.Divider />
                     <LinkContainer to="/seller/630f79417a42a911d72fc7f7">
                       <NavDropdown.Item>Nintendo</NavDropdown.Item>
                     </LinkContainer>
@@ -232,14 +243,15 @@ function App() {
                     <LinkContainer to="/about">
                       <NavDropdown.Item>About us</NavDropdown.Item>
                     </LinkContainer>
+                    <NavDropdown.Divider />
                     <LinkContainer to="/contact">
                       <NavDropdown.Item>Contacts</NavDropdown.Item>
                     </LinkContainer>
+                    <NavDropdown.Divider />
                     <LinkContainer to="/career">
                       <NavDropdown.Item>Careers</NavDropdown.Item>
                     </LinkContainer>
                   </NavDropdown>
-
                   <Link to="/quote" className="nav-link">
                     Quotes
                   </Link>
@@ -254,8 +266,13 @@ function App() {
             </Container>
             {/* </nav> */}
           </Navbar>
+
+          {/* <hr class="bg-danger border-2 border-top border-danger"></hr> */}
+
           {/* side bar */}
+          <hr className="" />
         </header>
+
         <div
           className={
             sidebarIsOpen
@@ -286,7 +303,6 @@ function App() {
             ))}
           </Nav>
         </div>
-
         <main
           className="container mt-3"
           onClick={() => setSidebarIsOpen(false)}
@@ -420,7 +436,6 @@ function App() {
         <div className="text-center">
           <i className="fas fa-ellipsis-h"></i>
         </div>
-
         <Footer />
       </div>
     </BrowserRouter>

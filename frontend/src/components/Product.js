@@ -21,7 +21,7 @@ export default function Product(props) {
           numReviews={product.numReviews}
         ></Rating>
 
-        <Card.Text>€{product.price}</Card.Text>
+        <Card.Text>{product.price} €</Card.Text>
         {product.seller && product.seller.seller && (
           <Link to={`/seller/${product.seller._id}`}>
             {product.seller.seller.name}
