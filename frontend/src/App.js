@@ -1,14 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
 import { LinkContainer } from 'react-router-bootstrap';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 import AdminRoute from './components/AdminRoute';
@@ -55,22 +50,9 @@ import Axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBars,
-  faCircleXmark,
   faEllipsisVertical,
   faMoon,
 } from '@fortawesome/free-solid-svg-icons';
-
-import {
-  MDBFooter,
-  MDBContainer,
-  MDBCol,
-  MDBRow,
-  MDBIcon,
-  MDBBtn,
-  MDBListGroup,
-  MDBListGroupItem,
-  MDBInput,
-} from 'mdb-react-ui-kit';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);

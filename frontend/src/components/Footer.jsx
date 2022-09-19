@@ -174,7 +174,7 @@ export default function Footer() {
               </li>
               <li class="list-inline-item">
                 <a
-                  href="https://www.linkedin.com/in/carlos-serôdio-0b3a05230"
+                  href="https://www.linkedin.com/in/carlos-andr%C3%A9-piteira-ser%C3%B4dio-6b7404126/"
                   target="_blank"
                 >
                   <i class="fab fa-linkedin-in"></i>
