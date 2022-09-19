@@ -1,3 +1,4 @@
+// import
 import React, { useContext, useEffect, useState } from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -54,29 +55,76 @@ import {
   faMoon,
 } from '@fortawesome/free-solid-svg-icons';
 
+// main function
 function App() {
-  const { state, dispatch: ctxDispatch } = useContext(Store);
-  const { cart, userInfo } = state;
+  /* get state and dispatch from useContext */
+  const {
+    state, // get state
+    dispatch: ctxDispatch, // rename dispatch to ctxDispatch
+  } = useContext(
+    Store // parameter
+  );
 
-  const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
-  const { cartItems } = cart;
+  /* get cart and userInfo from the state */
+  const {
+    cart, //get cart from the state
+    userInfo, //get userInfo from the state
+  } = state;
 
+  // get array from the useState hook
+  const [
+    sidebarIsOpen, // [0]
+    setSidebarIsOpen, // [1]
+  ] = useState(
+    false // parameter
+  );
+
+  const {
+    cartItems, // get cartItems from the cart
+  } = cart;
+
+  // define signoutHandler function
   const signoutHandler = () => {
-    ctxDispatch({ type: 'USER_SIGNOUT' });
-    localStorage.removeItem('userInfo');
-    localStorage.removeItem('cartItems');
-    localStorage.removeItem('shippingAddress');
-    localStorage.removeItem('paymentMethod');
+    // dispatch
+    ctxDispatch({
+      type: 'USER_SIGNOUT', // action.type = 'USER_SIGNOUT'
+    });
+
+    // remove items from localStorage
+    localStorage.removeItem(
+      'userInfo' // pass parameter: 'userInfo'
+    );
+    localStorage.removeItem(
+      'cartItems' // pass parameter: 'cartItems'
+    );
+    localStorage.removeItem(
+      'shippingAddress' // pass parameter: 'shippingAddress'
+    );
+    localStorage.removeItem(
+      'paymentMethod' // pass parameter: 'paymentMethod'
+    );
+
+    // redirect to signin page
     window.location.href = '/signin';
   };
 
-  const [categories, setCategories] = useState([]);
+  const [
+    categories, // [0] - get categories from useState
+    setCategories, // [1] - get setCategories from useState
+  ] = useState(
+    [] // pass a empty array
+  );
 
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await Axios.get(`/api/products/categories`);
-        setCategories(data);
+        const { data } = await Axios.get(
+          `/api/products/categories` // parameter
+        );
+        // call function
+        setCategories(
+          data // parameter
+        );
       } catch (err) {
         toast.error(getError(err));
       }
@@ -289,6 +337,7 @@ function App() {
           className="container mt-3"
           onClick={() => setSidebarIsOpen(false)}
         >
+          {/* Routes */}
           <Routes>
             <Route
               path="/interest"
@@ -424,4 +473,5 @@ function App() {
   );
 }
 
+// export
 export default App;
