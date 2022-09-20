@@ -115,45 +115,71 @@ function App() {
     [] // pass a empty array
   );
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const { data } = await Axios.get(
-          `/api/products/categories` // parameter
-        );
-        // call function
-        setCategories(
-          data // parameter
-        );
-      } catch (err) {
-        toast.error(getError(err));
-      }
-    };
-    fetchCategories();
-  }, [ctxDispatch]);
+  /* define useEffect, because we gonna send
+  an ajax request to backend  */
+  useEffect(
+    () => {
+      // define fetchCategories function (async function)
+      const fetchCategories = async () => {
+        try {
+          /* send an ajax request to backend using axios.get 
+           to getting the product categories from backend */
+          const { data } = await Axios.get(
+            `/api/products/categories` // parameter
+          );
+          // call function
+          setCategories(
+            data // parameter
+          );
+          // if there is an error
+        } catch (err) {
+          // show toast error
+          toast.error(
+            getError(
+              err // parameter of getError method
+            )
+          ); // parameter of error method
+        }
+      };
+      fetchCategories();
+    }, // 1st parameter
+    [ctxDispatch] // 2nd parameter - array with ctxDispatch
+  );
 
   return (
     <BrowserRouter>
       <div
         className={
-          sidebarIsOpen
-            ? 'site-container active-cont d-flex flex-column'
-            : 'site-container d-flex flex-column'
+          sidebarIsOpen // is defined
+            ? // set className
+              'site-container active-cont d-flex flex-column'
+            : // is not defined
+              // set className
+              'site-container d-flex flex-column'
         }
       >
         <Helmet>
+          {/* render title */}
           <title>React App</title>
         </Helmet>
-        <ToastContainer position="bottom-center" limit={1} />
+        <ToastContainer
+          position="bottom-center" /* set position */
+          limit={1} /* set limit */
+        />
         <header>
           {/* <Navbar bg="dark" variant="dark" expand="lg"> */}
+          {/* render Navbar */}
           <Navbar bg="" variant="" expand="lg">
             {/* <nav className="navbar navbar-expand-lg navbar-light bg-light"> */}
             <Container>
               {/* SideBar Button */}
               <span
                 className="fabars"
-                onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
+                onClick={() =>
+                  setSidebarIsOpen(
+                    !sidebarIsOpen // parameter
+                  )
+                }
               >
                 <FontAwesomeIcon icon={faBars} />
               </span>
@@ -305,9 +331,12 @@ function App() {
 
         <div
           className={
-            sidebarIsOpen
-              ? ' active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
-              : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
+            sidebarIsOpen /* sidebarIsOpen is defined */
+              ? /* set className text */
+                ' active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
+              : /* sidebarIsOpen is not defined */
+                /* set className text */
+                'side-navbar d-flex justify-content-between flex-wrap flex-column'
           }
         >
           {/* <div
@@ -317,7 +346,9 @@ function App() {
               : 'hidden'
           }
         > */}
+          {/* render Nav */}
           <Nav className="flex-column text-white w-100 p-2">
+            {/* render Nav Item */}
             <Nav.Item>
               <strong>Categories</strong>
             </Nav.Item>

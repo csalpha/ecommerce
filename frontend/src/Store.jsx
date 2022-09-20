@@ -1,7 +1,7 @@
 import { createContext, useReducer } from 'react';
 // import logger from 'use-reducer-logger';
 
-/* i wanna use react context to save the cart items in a global state
+/* we wanna use react context to save the cart items in a global state
    and use it in Components */
 
 /* Create Store */ /*  */
@@ -53,10 +53,11 @@ const initialState = {
 
 /* define reducer that accept two parameters */
 function reducer(
-  state, // 1st param
-  action // 2nd param
+  state, // 1st parameter
+  action // 2nd parameter
 ) {
-  /* define switch case that accept one parameter */
+  /* define switch case that accept one parameter 
+  and check action.type */
   switch (
     action.type // parameter
   ) {
@@ -70,25 +71,37 @@ function reducer(
         (item) => item._id === newItem._id // 1st param
       );
 
+      /* 
+      otherwise simply using the constructing array operator 
+      to decontruct all items in the cart and concatenate them 
+      with the new item */
+
       /* get cart items */
       const cartItems = existItem // if it's true
-        ? state.cart.cartItems.map((item) =>
+        ? //check each item in the cartItems
+          state.cart.cartItems.map((item) =>
             item.name === existItem.name // if it's true
-              ? newItem
+              ? //newItem contains the new quantity of this item on the cart
+                newItem
               : // otherwise
+                // keep the items in the cart items as they are
                 item
           )
         : // otherwise
           [
             ...state.cart.cartItems, // [0] - keep all values
             newItem, // [1]
-          ];
+          ]; // we push the new item at the end of the cart items
 
+      // save cart in the localStorage
       localStorage.setItem(
         'cartItems', // 1st param
-        JSON.stringify(cartItems) // 2nd param
+        JSON.stringify(
+          cartItems // pass cartItems
+        ) // 2nd param
       );
 
+      // return updated cart items
       return {
         ...state, // keep all values in the field
         cart: {
@@ -184,7 +197,9 @@ function reducer(
 }
 
 /* StoreProvider - is a Wrapper for React App and pass global props to children */
-export function StoreProvider(props) {
+export function StoreProvider(
+  props // pass global props
+) {
   // get state and dispatch from useReducer
   const [
     state, // [0]
