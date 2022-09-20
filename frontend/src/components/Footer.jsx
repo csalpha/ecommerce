@@ -43,8 +43,8 @@ export default function Footer() {
         <div className="row text-center mb-3">
           <div className="col-md-4 mb-3">
             <ul className="nav flex-column">
-              <li class="nav-item">
-                <span class="footer-title">Partners</span>
+              <li className="nav-item">
+                <span className="footer-title">Partners</span>
               </li>
               <li className="">
                 <Link
@@ -55,7 +55,7 @@ export default function Footer() {
                   Sony
                 </Link>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <Link
                   onClick={backToTop}
                   to="/seller/630f79417a42a911d72fc7f6"
@@ -64,7 +64,7 @@ export default function Footer() {
                   Microsoft
                 </Link>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <Link
                   onClick={backToTop}
                   to="/seller/630f79417a42a911d72fc7f7"
@@ -73,13 +73,13 @@ export default function Footer() {
                   Nintendo
                 </Link>
               </li>
-              {/* <li class="nav-item">
-                <a class="link-item" href="#">
+              {/* <li className="nav-item">
+                <a className="link-item" href="#">
                   Plans & Prices
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="link-item" href="#">
+              <li className="nav-item">
+                <a className="link-item" href="#">
                   Frequently asked questions
                 </a>
               </li> */}
@@ -87,9 +87,9 @@ export default function Footer() {
           </div>
 
           <div className="col-md-4 mb-3">
-            <ul class="nav flex-column">
+            <ul className="nav flex-column">
               <li className="nav-item">
-                <span class="footer-title">About</span>
+                <span className="footer-title">About</span>
               </li>
               <li className="nav-item">
                 <Link onClick={backToTop} to="/about" className="link-item">
@@ -160,38 +160,38 @@ export default function Footer() {
         </div>
 
         <div className="row text-center mb-3">
-          <div class="col-md-12 box">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
+          <div className="col-md-12 box">
+            <ul className="list-inline social-buttons">
+              <li className="list-inline-item">
                 <a href="https://twitter.com/serodio_carlos" target="_blank">
-                  <i class="fab fa-twitter"></i>
+                  <i className="fab fa-twitter"></i>
                 </a>
               </li>
-              <li class="list-inline-item">
+              <li className="list-inline-item">
                 <a href="https://github.com/csalpha" target="_blank">
-                  <i class="fab fa-github"></i>
+                  <i className="fab fa-github"></i>
                 </a>
               </li>
-              <li class="list-inline-item">
+              <li className="list-inline-item">
                 <a
                   href="https://linkedin.com/in/carlos-serodio-6b7404126"
                   target="_blank"
                 >
-                  <i class="fab fa-linkedin-in"></i>
+                  <i className="fab fa-linkedin-in"></i>
                 </a>
               </li>
 
-              <li class="list-inline-item">
+              <li className="list-inline-item">
                 <a
                   href="https://www.youtube.com/channel/UCJtSl1227biHNWp2fnSBQdQ"
                   target="_blank"
                 >
-                  <i class="fab fa-youtube"></i>
+                  <i className="fab fa-youtube"></i>
                 </a>
               </li>
-              <li class="list-inline-item">
+              <li className="list-inline-item">
                 <a href="https://wa.me/351967389659" target="_blank">
-                  <i class="fab fa-whatsapp"></i>
+                  <i className="fab fa-whatsapp"></i>
                 </a>
               </li>
             </ul>

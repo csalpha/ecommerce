@@ -1,61 +1,94 @@
 import React from 'react';
 
-export default function Rating(props) {
-  const { rating, numReviews, caption } = props;
+/* define Rating */
+export default function Rating(
+  props // pass props
+) {
+  const {
+    rating, // get rating from the props
+    numReviews, // get numReviews from the props
+    caption, // get caption from the props
+  } = props;
+
   return (
+    /* render rating div */
     <div className="rating">
       <span>
         <i
           className={
-            rating >= 1
-              ? 'fas fa-star'
-              : rating >= 0.5
-              ? 'fas fa-star-half-alt'
-              : 'far fa-star'
+            rating >= 1 /* true condiction */
+              ? // set className text
+                'fas fa-star'
+              : // otherwise
+              rating >= 0.5 /* true condiction */
+              ? // set className text
+                'fas fa-star-half-alt'
+              : // otherwise
+                // set className text
+                'far fa-star'
           }
         ></i>
       </span>
       <span>
         <i
           className={
-            rating >= 2
-              ? 'fas fa-star'
-              : rating >= 1.5
-              ? 'fas fa-star-half-alt'
-              : 'far fa-star'
+            rating >= 2 /* true condiction */
+              ? // set className text
+                'fas fa-star'
+              : // otherwise
+              rating >= 1.5 /* true condiction */
+              ? // set className text
+                'fas fa-star-half-alt'
+              : // otherwise
+                // set className text
+                'far fa-star'
           }
         ></i>
       </span>
       <span>
         <i
           className={
-            rating >= 3
+            rating >= 3 /* true condiction */
               ? 'fas fa-star'
-              : rating >= 2.5
-              ? 'fas fa-star-half-alt'
-              : 'far fa-star'
+              : // otherwise
+              rating >= 2.5 /* true condiction */
+              ? // set className text
+                'fas fa-star-half-alt'
+              : // otherwise
+                // set className text
+                'far fa-star'
           }
         ></i>
       </span>
       <span>
         <i
           className={
-            rating >= 4
-              ? 'fas fa-star'
-              : rating >= 3.5
-              ? 'fas fa-star-half-alt'
-              : 'far fa-star'
+            rating >= 4 /* true condiction */
+              ? // set className text
+                'fas fa-star'
+              : // otherwise
+              rating >= 3.5 /* true condiction */
+              ? // set className text
+                'fas fa-star-half-alt'
+              : // otherwise
+                // set className text
+                'far fa-star'
           }
         ></i>
       </span>
       <span>
         <i
           className={
-            rating >= 5
-              ? 'fas fa-star'
-              : rating >= 4.5
-              ? 'fas fa-star-half-alt'
-              : 'far fa-star'
+            rating >= 5 /* true condiction */
+              ? // set className text
+                'fas fa-star'
+              : // otherwise
+              rating >= 4.5 /* true condiction */
+              ? // set className text
+                'fas fa-star-half-alt'
+              : // otherwise
+                // set className text
+                'far fa-star'
           }
         ></i>
       </span>

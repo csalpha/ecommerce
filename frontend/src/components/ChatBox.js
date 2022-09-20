@@ -83,7 +83,7 @@ export default function ChatBox(props) {
               </Col>
               <Col className="text-end">
                 <Button variant="light" type="button" onClick={closeHandler}>
-                  <i class="fas fa-times-circle"></i>
+                  <i className="fas fa-times-circle"></i>
                 </Button>
               </Col>
             </Row>

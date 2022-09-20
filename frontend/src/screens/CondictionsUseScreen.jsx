@@ -41,14 +41,14 @@ export default function CondictionsUseScreen(props) {
         </Col>
       </Row>
 
-      {/* <a href="#" class="link-primary">Primary link</a>
-<a href="#" class="link-secondary">Secondary link</a>
-<a href="#" class="link-success">Success link</a>
-<a href="#" class="link-danger">Danger link</a>
-<a href="#" class="link-warning">Warning link</a>
-<a href="#" class="link-info">Info link</a>
-<a href="#" class="link-light">Light link</a>
-<a href="#" class="link-dark">Dark link</a> */}
+      {/* <a href="#" className="link-primary">Primary link</a>
+<a href="#" className="link-secondary">Secondary link</a>
+<a href="#" className="link-success">Success link</a>
+<a href="#" className="link-danger">Danger link</a>
+<a href="#" className="link-warning">Warning link</a>
+<a href="#" className="link-info">Info link</a>
+<a href="#" className="link-light">Light link</a>
+<a href="#" className="link-dark">Dark link</a> */}
 
       {/* <div className="my-3">
             <Row >

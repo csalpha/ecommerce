@@ -323,7 +323,7 @@ function App() {
             {/* </nav> */}
           </Navbar>
 
-          {/* <hr class="bg-danger border-2 border-top border-danger"></hr> */}
+          {/* <hr className="bg-danger border-2 border-top border-danger"></hr> */}
 
           {/* side bar */}
           <hr className="" />
