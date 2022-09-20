@@ -154,6 +154,9 @@ export default function ProductScreen() {
   ) : (
     <div>
       <Row>
+        <div className="py-2">
+          <Link to="/">back to products</Link>
+        </div>
         <Col md={6}>
           <img
             className="img-large"
@@ -218,7 +221,7 @@ export default function ProductScreen() {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
-                    <Col>Pirce:</Col>
+                    <Col>Price:</Col>
                     <Col>{product.price} €</Col>
                   </Row>
                 </ListGroup.Item>

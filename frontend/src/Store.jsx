@@ -202,8 +202,8 @@ export function StoreProvider(
 ) {
   // get state and dispatch from useReducer
   const [
-    state, // [0]
-    dispatch, // [1]
+    state, // [0] get state from useReducer
+    dispatch, // [1] get dispatch from useReducer
     // define useReducer
   ] = useReducer(
     //process.env.NODE_ENV === 'development' ? logger(reducer) : reducer,

@@ -13,7 +13,9 @@ export default function Rating(
   return (
     /* render rating div */
     <div className="rating">
+      {/* render span */}
       <span>
+        {/* render icon */}
         <i
           className={
             rating >= 1 /* true condiction */
@@ -29,7 +31,9 @@ export default function Rating(
           }
         ></i>
       </span>
+      {/* render span */}
       <span>
+        {/* render icon */}
         <i
           className={
             rating >= 2 /* true condiction */
@@ -45,7 +49,9 @@ export default function Rating(
           }
         ></i>
       </span>
+      {/* render span */}
       <span>
+        {/* render icon */}
         <i
           className={
             rating >= 3 /* true condiction */
@@ -60,7 +66,9 @@ export default function Rating(
           }
         ></i>
       </span>
+      {/* render span */}
       <span>
+        {/* render icon */}
         <i
           className={
             rating >= 4 /* true condiction */
@@ -76,7 +84,9 @@ export default function Rating(
           }
         ></i>
       </span>
+      {/* render span */}
       <span>
+        {/* render icon */}
         <i
           className={
             rating >= 5 /* true condiction */
@@ -92,9 +102,10 @@ export default function Rating(
           }
         ></i>
       </span>
-      {caption ? (
+      {caption ? ( // caption is defined
         <span>{caption}</span>
       ) : (
+        // otherwise ( caption is not defined )
         <span>{' ' + numReviews + ' reviews'}</span>
       )}
     </div>

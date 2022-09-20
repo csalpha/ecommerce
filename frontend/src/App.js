@@ -59,8 +59,9 @@ import {
 function App() {
   /* get state and dispatch from useContext */
   const {
-    state, // get state
-    dispatch: ctxDispatch, // rename dispatch to ctxDispatch
+    state, // get state from useContext
+    // rename dispatch to ctxDispatch
+    dispatch: ctxDispatch, // get dispatch from useContext
   } = useContext(
     Store // parameter
   );
