@@ -11,6 +11,7 @@ import { StoreProvider } from './Store';
 
 ReactDOM.render(
   <HelmetProvider>
+    {/* evolve the application with the StoreProvider */}
     <StoreProvider>
       <React.StrictMode>
         <PayPalScriptProvider deferLoading={true}>

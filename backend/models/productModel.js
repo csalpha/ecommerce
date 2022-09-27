@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+
 const reviewSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
@@ -9,6 +10,7 @@ const reviewSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
 const productSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, unique: true },
@@ -29,6 +31,12 @@ const productSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-const Product = mongoose.model('Product', productSchema);
+const Product =
+  // create the model
+  mongoose.model(
+    'Product', // model name
+    productSchema // schema
+  );
 
+// export model
 export default Product;

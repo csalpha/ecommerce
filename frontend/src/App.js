@@ -55,16 +55,23 @@ import {
   faMoon,
 } from '@fortawesome/free-solid-svg-icons';
 
+/* useContext - The main idea of using the context is to allow your components 
+   to access some global data and re-render when that global data is changed.
+*/
+
 // main function
 function App() {
   /* get state and dispatch from useContext */
+  /* useContext allow access to the context */
   const {
     state, // get state from useContext
     // rename dispatch to ctxDispatch
     dispatch: ctxDispatch, // get dispatch from useContext
   } = useContext(
-    Store // parameter
+    Store // pass Store
   );
+
+  console.log(state);
 
   /* get cart and userInfo from the state */
   const {

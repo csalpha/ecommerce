@@ -7,6 +7,7 @@ import { generateToken, isAdmin, isAuth } from '../utils.js';
 
 const userRouter = express.Router();
 
+// get top-sellers
 userRouter.get(
   '/top-sellers',
   expressAsyncHandler(async (req, res) => {
@@ -16,7 +17,7 @@ userRouter.get(
     res.send(topSellers);
   })
 );
-
+// seed users
 userRouter.get(
   '/seed',
   expressAsyncHandler(async (req, res) => {
@@ -25,7 +26,7 @@ userRouter.get(
     res.send({ createdUsers });
   })
 );
-
+// signin
 userRouter.post(
   '/signin',
   expressAsyncHandler(async (req, res) => {
@@ -46,7 +47,7 @@ userRouter.post(
     res.status(401).send({ message: 'Invalid email or password' });
   })
 );
-
+// signup
 userRouter.post(
   '/signup',
   expressAsyncHandler(async (req, res) => {
@@ -66,7 +67,7 @@ userRouter.post(
     });
   })
 );
-
+// get seller by id
 userRouter.get(
   '/sellers/:id',
   expressAsyncHandler(async (req, res) => {
@@ -83,7 +84,7 @@ userRouter.get(
     }
   })
 );
-
+// get user by id
 userRouter.get(
   '/:id',
   isAuth,
@@ -97,6 +98,7 @@ userRouter.get(
     }
   })
 );
+// update user profile
 userRouter.put(
   '/profile',
   isAuth,
@@ -136,7 +138,7 @@ userRouter.get(
     res.send(users);
   })
 );
-
+// delete user by id
 userRouter.delete(
   '/:id',
   isAuth,
@@ -155,7 +157,7 @@ userRouter.delete(
     }
   })
 );
-
+// update user
 userRouter.put(
   '/:id',
   isAuth,

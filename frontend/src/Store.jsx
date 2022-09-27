@@ -4,7 +4,7 @@ import { createContext, useReducer } from 'react';
 /* we wanna use react context to save the cart items in a global state
    and use it in Components */
 
-/* Create Store */ /*  */
+/* Create Store */
 /* get Store from createContext  */
 export const Store = createContext();
 
@@ -16,17 +16,21 @@ const initialState = {
       'cartItems' // pass parameter
     )
       ? // if it's true
+        /* convert JSON string into an object */
         JSON.parse(
           localStorage.getItem(
             'cartItems' // pass parameter
           )
         )
       : // otherwise
-        [], //
+        [],
+
+    // shippingAddress
     shippingAddress: localStorage.getItem(
       'shippingAddress' // pass parameter
     ) /* if it's true */
-      ? JSON.parse(
+      ? /* convert JSON string into an object */
+        JSON.parse(
           localStorage.getItem(
             'shippingAddress' // pass parameter
           )
@@ -35,15 +39,19 @@ const initialState = {
         {
           location: {}, // set location to empty object
         },
+
+    // paymentMethod
     paymentMethod: localStorage.getItem('paymentMethod')
       ? localStorage.getItem('paymentMethod')
       : '',
   },
+
   // user info
   userInfo: localStorage.getItem(
     'userInfo' // parameter
   ) // if it's true
-    ? JSON.parse(
+    ? /* convert JSON string into an object */
+      JSON.parse(
         localStorage.getItem(
           'userInfo' // parameter
         )
@@ -197,8 +205,10 @@ function reducer(
 }
 
 /* StoreProvider - is a Wrapper for React App and pass global props to children */
+/* provedor de dados */
+/* Provedor de Loja */
 export function StoreProvider(
-  props // pass global props
+  props // get global props
 ) {
   // get state and dispatch from useReducer
   const [
@@ -214,6 +224,8 @@ export function StoreProvider(
   /* define value object
    the value contain current state in the context and
    the dispatch to update state in the context */
+
+  /* context global data */
   const value = {
     state,
     dispatch,
@@ -222,5 +234,12 @@ export function StoreProvider(
   // return Store ( is comming from react context )
   // get Provider from the Store object
   // render {props.children}
-  return <Store.Provider value={value}>{props.children}</Store.Provider>;
+  return (
+    /* Provedor de Loja */
+    <Store.Provider
+      value={value} // set value to value
+    >
+      {props.children} {/* All React Components */}
+    </Store.Provider>
+  );
 }

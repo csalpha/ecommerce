@@ -91,9 +91,11 @@ export default function ProductScreen() {
   // to add a item to the cart i need to dispatch
   // an action on the react context
 
+  // define addToCartHandler ( async function )
   const addToCartHandler = async () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+
     // exist item
     const existItem = cart.cartItems.find((x) => x._id === product._id);
 
@@ -114,6 +116,7 @@ export default function ProductScreen() {
     navigate('/cart');
   };
 
+  // define submitHandler ( async function )
   const submitHandler = async (e) => {
     e.preventDefault();
     if (!comment || !rating) {
