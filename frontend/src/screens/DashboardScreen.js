@@ -111,7 +111,9 @@ export default function DashboardScreen() {
                 </Card>
               </Col>
             </Row>
+          </div>
 
+          <div className="my-3">
             <h2>Sales</h2>
             {summary.dailyOrders.length === 0 ? (
               <MessageBox>No Sale</MessageBox>
@@ -127,7 +129,9 @@ export default function DashboardScreen() {
                 ]}
               ></Chart>
             )}
+          </div>
 
+          <div className="my-3">
             <h2>Categories</h2>
             {summary.productCategories.length === 0 ? (
               <MessageBox>No Category</MessageBox>

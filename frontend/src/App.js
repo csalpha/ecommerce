@@ -52,6 +52,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBars,
   faEllipsisVertical,
+  faCircleXmark,
   faMoon,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -154,12 +155,17 @@ function App() {
     [ctxDispatch] // 2nd parameter - array with ctxDispatch
   );
 
+  sidebarIsOpen
+    ? (document.body.style.overflow = 'hidden')
+    : (document.body.style.overflow = 'auto');
+
   return (
     <BrowserRouter>
       <div
         className={
           sidebarIsOpen // is defined
             ? // set className
+              // 'site-container active-cont d-flex flex-column'
               'site-container active-cont d-flex flex-column'
             : // is not defined
               // set className
@@ -341,7 +347,7 @@ function App() {
           className={
             sidebarIsOpen /* sidebarIsOpen is defined */
               ? /* set className text */
-                ' active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
+                ' active-nav side-navbar d-flex active-cont justify-content-between flex-wrap flex-column'
               : /* sidebarIsOpen is not defined */
                 /* set className text */
                 'side-navbar d-flex justify-content-between flex-wrap flex-column'
@@ -357,6 +363,18 @@ function App() {
           {/* render Nav */}
           <Nav className="flex-column text-white w-100 p-2">
             {/* render Nav Item */}
+            <Nav.Item>
+              <span
+                className="ml-4 fabars"
+                onClick={() =>
+                  setSidebarIsOpen(
+                    !sidebarIsOpen // parameter
+                  )
+                }
+              >
+                Close <FontAwesomeIcon icon={faCircleXmark} />
+              </span>
+            </Nav.Item>
             <Nav.Item>
               <strong>Categories</strong>
             </Nav.Item>
