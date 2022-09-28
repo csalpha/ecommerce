@@ -60,6 +60,7 @@ productRouter.get(
   ) // 2nd parameter - expressAsyncHandler
 );
 
+// get product by slug
 productRouter.get(
   '/slug/:slug', // 1st parameter - api address
   expressAsyncHandler(async ({ params }, res) => {
@@ -83,87 +84,110 @@ productRouter.get(
   }) // 2nd parameter - expressAsyncHandler
 );
 
+// define PAGE_SIZE
 const PAGE_SIZE = 3;
 productRouter.get(
   '/', // 1st parameter - api address
-  expressAsyncHandler(async ({ query }, res) => {
-    const pageSize = query.pageSize || PAGE_SIZE;
-    const page = query.page || 1;
-    const category = query.category || '';
-    const brand = query.brand || '';
-    const price = query.price || '';
-    const rating = query.rating || '';
-    const order = query.order || '';
-    const searchQuery = query.query || '';
+  expressAsyncHandler(
+    async (
+      { query }, // 1st param - query
+      res // 2nd param - response
+    ) => {
+      // define pageSize
+      const pageSize = query.pageSize || PAGE_SIZE;
+      // define page
+      const page = query.page || 1;
+      // define category
+      const category = query.category || '';
+      // define brand
+      const brand = query.brand || '';
+      // define price
+      const price = query.price || '';
+      // define rating
+      const rating = query.rating || '';
+      // define order
+      const order = query.order || '';
+      // define searchQuery
+      const searchQuery = query.query || '';
+      // define queryFilter
+      const queryFilter =
+        searchQuery && searchQuery !== 'all'
+          ? {
+              name: {
+                $regex: searchQuery,
+                $options: 'i',
+              },
+            }
+          : {};
+      // define categoryFilter
+      const categoryFilter = category && category !== 'all' ? { category } : {};
+      // define brandFilter
+      const brandFilter = brand && brand !== 'all' ? { brand } : {};
+      // define ratingFilter
+      const ratingFilter =
+        rating && rating !== 'all'
+          ? {
+              rating: {
+                $gte: Number(rating),
+              },
+            }
+          : {};
+      // define priceFilter
+      const priceFilter =
+        price && price !== 'all'
+          ? {
+              price: {
+                $gte: Number(price.split('-')[0]),
+                $lte: Number(price.split('-')[1]),
+              },
+            }
+          : {};
 
-    const queryFilter =
-      searchQuery && searchQuery !== 'all'
-        ? {
-            name: {
-              $regex: searchQuery,
-              $options: 'i',
-            },
-          }
-        : {};
-    const categoryFilter = category && category !== 'all' ? { category } : {};
-    const brandFilter = brand && brand !== 'all' ? { brand } : {};
-    const ratingFilter =
-      rating && rating !== 'all'
-        ? {
-            rating: {
-              $gte: Number(rating),
-            },
-          }
-        : {};
-    const priceFilter =
-      price && price !== 'all'
-        ? {
-            price: {
-              $gte: Number(price.split('-')[0]),
-              $lte: Number(price.split('-')[1]),
-            },
-          }
-        : {};
+      // define sortOrder
+      const sortOrder =
+        order === 'featured'
+          ? { featured: -1 }
+          : order === 'lowest'
+          ? { price: 1 }
+          : order === 'highest'
+          ? { price: -1 }
+          : order === 'toprated'
+          ? { rating: -1 }
+          : order === 'newest'
+          ? { createdAt: -1 }
+          : { _id: -1 };
 
-    const sortOrder =
-      order === 'featured'
-        ? { featured: -1 }
-        : order === 'lowest'
-        ? { price: 1 }
-        : order === 'highest'
-        ? { price: -1 }
-        : order === 'toprated'
-        ? { rating: -1 }
-        : order === 'newest'
-        ? { createdAt: -1 }
-        : { _id: -1 };
+      // define products
+      const products = await Product.find({
+        ...queryFilter,
+        ...categoryFilter,
+        ...priceFilter,
+        ...brandFilter,
+        ...ratingFilter,
+      })
+        .populate('seller', 'seller.name seller.logo')
+        .sort(sortOrder)
+        .skip(pageSize * (page - 1))
+        .limit(pageSize);
 
-    const products = await Product.find({
-      ...queryFilter,
-      ...categoryFilter,
-      ...priceFilter,
-      ...brandFilter,
-      ...ratingFilter,
-    })
-      .populate('seller', 'seller.name seller.logo')
-      .sort(sortOrder)
-      .skip(pageSize * (page - 1))
-      .limit(pageSize);
+      // define countProducts
+      const countProducts = await Product.countDocuments({
+        ...queryFilter,
+        ...categoryFilter,
+        ...priceFilter,
+        ...brandFilter,
+        ...ratingFilter,
+      });
 
-    const countProducts = await Product.countDocuments({
-      ...queryFilter,
-      ...categoryFilter,
-      ...priceFilter,
-      ...brandFilter,
-      ...ratingFilter,
-    });
-    res.send({
-      products,
-      countProducts,
-      page,
-      pages: Math.ceil(countProducts / pageSize),
-    });
-  })
+      // response | send
+      res.send({
+        products,
+        countProducts,
+        page,
+        pages: Math.ceil(countProducts / pageSize),
+      });
+    }
+  )
 );
 
 productRouter.get(
@@ -186,6 +210,8 @@ productRouter.get(
     const countProducts = await Product.countDocuments({
       ...sellerFilter,
     });
+
+    // response | send
     res.send({
       products,
       countProducts,
@@ -206,8 +232,9 @@ productRouter.get(
       // get categories using Product.find
       const categories = await Product.find().distinct('category');
 
+      // response | send | categories
       res.send(
-        categories // 1st parameter
+        categories // pass parameter
       );
     }
   ) // 2nd parameter - expressAsyncHandler
@@ -226,8 +253,12 @@ productRouter.get(
         'seller.name seller.logo seller.rating seller.numReviews'
       );
       if (product) {
-        res.send(product);
+        // response | send | product
+        res.send(
+          product // pass parameter
+        );
       } else {
+        // response | status 404 | send | message
         res.status(404).send({ message: 'Product Not Found' });
       }
     }
@@ -259,7 +290,10 @@ productRouter.post(
         description: 'sample description',
       });
       const createdProduct = await product.save();
-      res.send({ message: 'Product Created', product: createdProduct });
+      res.send({
+        message: 'Product Created',
+        product: createdProduct,
+      });
     }
   ) // 4th parameter - expressAsyncHandler
 );
@@ -274,7 +308,7 @@ productRouter.put(
       req, // 1st param - request
       res // 2nd param - response
     ) => {
-      // get productId from request
+      // get productId from request params.id
       const productId = req.params.id;
       // get product using Product.findById
       const product = await Product.findById(
@@ -282,7 +316,6 @@ productRouter.put(
       );
       // check if product exist
       if (product) {
-        //
         product.name = req.body.name;
         product.slug = req.body.slug;
         product.price = req.body.price;
@@ -317,18 +350,31 @@ productRouter.delete(
       req, // 1st param - request
       res // 2nd param - response
     ) => {
-      const product = await Product.findById(req.params.id);
+      // get product using Product.findById
+      const product = await Product.findById(
+        req.params.id // pass id
+      );
+      // check product
       if (product) {
+        // delete product
         const deleteProduct = await product.remove();
-        res.send({ message: 'Product Deleted', product: deleteProduct });
+
+        // response | send | message | product
+        res.send({
+          message: 'Product Deleted',
+          product: deleteProduct,
+        });
       } else {
-        res.status(404).send({ message: 'Product Not Found' });
+        // response | status 404 | send | message
+        res.status(404).send({
+          message: 'Product Not Found',
+        });
       }
     }
   )
 );
 
-// submit review
+// submit product review
 productRouter.post(
   '/:id/reviews', // 1st parameter - api address
   isAuth, // 2nd parameter
@@ -337,6 +383,7 @@ productRouter.post(
       req, // 1st param - request
       res // 2nd param - response
     ) => {
+      // get productId from request params.id
       const productId = req.params.id;
       const product = await Product.findById(productId);
       if (product) {
@@ -363,7 +410,10 @@ productRouter.post(
           rating: product.numReviews,
         });
       } else {
-        res.status(404).send({ message: 'Product Not Found' });
+        // response | status 404 | send | message
+        res.status(404).send({
+          message: 'Product Not Found',
+        });
       }
     }
   )

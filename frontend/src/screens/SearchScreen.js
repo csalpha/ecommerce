@@ -13,6 +13,7 @@ import Rating from '../components/Rating';
 import { getError, prices, ratings } from '../utils';
 import { Helmet } from 'react-helmet-async';
 
+// define reducer
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -52,6 +53,7 @@ export default function SearchScreen() {
       error: '',
     });
 
+  // define useEffect
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
@@ -72,7 +74,14 @@ export default function SearchScreen() {
     fetchData();
   }, [category, dispatch, price, query, order, rating, page]);
 
-  const [categories, setCategories] = useState([]);
+  const [
+    categories, // get categories from useState
+    setCategories,
+  ] = useState(
+    [] // pass empty array
+  );
+
+  // define useEffect
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -84,6 +93,8 @@ export default function SearchScreen() {
     };
     fetchCategories();
   }, [dispatch]);
+
+  // define getFilterUrl
   const getFilterUrl = (filter) => {
     const filterPage = filter.page || page;
     const filterCategory = filter.category || category;

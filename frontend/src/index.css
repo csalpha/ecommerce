@@ -93,10 +93,11 @@ hr {
 } */
 
 .side-navbar {
-  width: 33%;
+  width: 100px;
   height: 100%;
+  /* position: fixed; */
   position: fixed;
-  left: -33%;
+  left: -100px;
   /* background-color: #c4c0bc; */
   background-color: #000000;
   /* background-color: rgba(0, 0, 0, 0.92); */
@@ -105,11 +106,11 @@ hr {
 }
 
 .active-cont {
-  margin-left: 33%;
+  margin-left: 100px;
 }
 
 .site-container {
-  transition: 0.4s;
+  transition: 0.5s;
 }
 
 .active-nav {

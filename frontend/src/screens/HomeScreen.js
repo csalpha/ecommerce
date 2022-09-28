@@ -67,18 +67,30 @@ export default function HomeScreen() {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <>
+          <Row>
+            <h2>Featured Sellers</h2>
+          </Row>
           {sellers.length === 0 && <MessageBox>No Seller Found</MessageBox>}
-          <Carousel showArrows autoPlay showThumbs={false}>
-            {sellers.map((seller) => (
-              <div key={seller._id}>
-                <Link to={`/seller/${seller._id}`}>
-                  <img src={seller.seller.logo} alt={seller.seller.name} />
-                  <p className="legend">{seller.seller.name}</p>
-                </Link>
-              </div>
-            ))}
-          </Carousel>
-          <h2>Featured Products</h2>
+          <Row>
+            <Carousel showArrows autoPlay showThumbs={false}>
+              {sellers.map((seller) => (
+                <div key={seller._id}>
+                  <Link to={`/seller/${seller._id}`}>
+                    <img src={seller.seller.logo} alt={seller.seller.name} />
+                    <p className="legend">{seller.seller.name}</p>
+                  </Link>
+                </div>
+              ))}
+            </Carousel>
+          </Row>
+          <Row>
+            <p></p>
+          </Row>
+          <Row>
+            <h2>Featured Products</h2>
+          </Row>
+
+          {/* <h2>Featured Products</h2> */}
           {products.length === 0 && <MessageBox>No Product Found</MessageBox>}
           <Row>
             {products.map((product) => (
