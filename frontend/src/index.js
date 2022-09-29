@@ -13,7 +13,9 @@ ReactDOM.render(
   <HelmetProvider>
     {/* evolve the application with the StoreProvider */}
     <StoreProvider>
+      {/* evolve the application with the React.StrictMode */}
       <React.StrictMode>
+        {/* evolve the application with the PayPalScriptProvider */}
         <PayPalScriptProvider deferLoading={true}>
           <App />
         </PayPalScriptProvider>

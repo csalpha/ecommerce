@@ -45,6 +45,7 @@ import QuoteScreen from './screens/QuoteScreen';
 import ChatBox from './components/ChatBox';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// provider ( fornecedor )
 import { Store } from './Store';
 import { getError } from './utils';
 import Axios from 'axios';
@@ -72,7 +73,7 @@ function App() {
     Store // pass Store
   );
 
-  console.log(state);
+  // // console.log(state);
 
   /* get cart and userInfo from the state */
   const {
@@ -82,7 +83,7 @@ function App() {
 
   // get array from the useState hook
   const [
-    sidebarIsOpen, // [0]
+    sidebarIsOpen, // [0] get sidebarIsOpen from useState
     setSidebarIsOpen, // [1]
   ] = useState(
     false // parameter
@@ -126,20 +127,27 @@ function App() {
 
   /* define useEffect, because we gonna send
   an ajax request to backend  */
+  /* useEffect
+  1st parameter: define function 
+  2nd parameter: define states  */
   useEffect(
     () => {
       // define fetchCategories function (async function)
       const fetchCategories = async () => {
         try {
+          /* AJAX REQUEST */
           /* send an ajax request to backend using axios.get 
-           to getting the product categories from backend */
-          const { data } = await Axios.get(
+           to getting the products categories from backend */
+          const {
+            data, // get data from backend
+          } = await Axios.get(
             `/api/products/categories` // parameter
           );
           // call function
           setCategories(
             data // parameter
           );
+
           // if there is an error
         } catch (err) {
           // show toast error

@@ -4,19 +4,16 @@ import { createContext, useReducer } from 'react';
 /* we wanna use react context to save the cart items in a global state
    and use it in Components */
 
-/* Create Store */
-/* get Store from createContext  */
+/* Create and export Context ( Store )  */
 export const Store = createContext();
 
 /* define initialState */
 const initialState = {
-  // cart
+  /* cart */
   cart: {
-    cartItems: localStorage.getItem(
-      'cartItems' // pass parameter
-    )
-      ? // if it's true
-        /* convert JSON string into an object */
+    /* cart items */
+    cartItems: localStorage.getItem('cartItems')
+      ? /* convert JSON string into an object */
         JSON.parse(
           localStorage.getItem(
             'cartItems' // pass parameter
@@ -25,10 +22,8 @@ const initialState = {
       : // otherwise
         [],
 
-    // shippingAddress
-    shippingAddress: localStorage.getItem(
-      'shippingAddress' // pass parameter
-    ) /* if it's true */
+    /* shippingAddress */
+    shippingAddress: localStorage.getItem('shippingAddress')
       ? /* convert JSON string into an object */
         JSON.parse(
           localStorage.getItem(
@@ -40,13 +35,13 @@ const initialState = {
           location: {}, // set location to empty object
         },
 
-    // paymentMethod
+    /* paymentMethod */
     paymentMethod: localStorage.getItem('paymentMethod')
       ? localStorage.getItem('paymentMethod')
       : '',
   },
 
-  // user info
+  /* user info */
   userInfo: localStorage.getItem(
     'userInfo' // parameter
   ) // if it's true
@@ -74,9 +69,9 @@ function reducer(
       /* get newItem from action.payload */
       const newItem = action.payload;
 
-      /* get existItem from ... */
+      /* get existItem  */
       const existItem = state.cart.cartItems.find(
-        (item) => item._id === newItem._id // 1st param
+        (item) => item._id === newItem._id // pass param
       );
 
       /* 
@@ -128,6 +123,8 @@ function reducer(
         'cartItems', // 1st param
         JSON.stringify(cartItems) // 2nd param
       );
+      /* return all cart items except that we passed in the
+      action.payload */
       return {
         ...state, // keep previous state
         cart: {
@@ -136,6 +133,28 @@ function reducer(
         },
       };
     }
+    /* case action.type is 'CART_RESET' */
+    case 'CART_RESET':
+      // implement CART_RESET action
+      return {
+        ...state, // keep the previous state
+        // make cart a empty object
+        cart: {
+          cartItems: [],
+          shippingAddress: { location: {} },
+          paymentMethod: '',
+        },
+      };
+    /* case action.type is 'CART_CLEAR_ITEMS' */
+    case 'CART_CLEAR_ITEMS':
+      // implement CART_CLEAR_ITEMS
+      return {
+        ...state, // keep the previous state
+        cart: {
+          ...state.cart, // keep the cart
+          cartItems: [], // set cartItems to empty array
+        },
+      };
     /* case action.type is 'SAVE_SHIPPING_ADDRESS' */
     case 'SAVE_SHIPPING_ADDRESS':
       return {
@@ -145,6 +164,8 @@ function reducer(
           shippingAddress: {
             ...state.cart.shippingAddress, // keep previous state
             ...action.payload, // keep all values
+            /* is comming from the shipping form, the data that user entered in 
+            the input boxes */
           },
         },
       };
@@ -175,7 +196,7 @@ function reducer(
         ...state, // keep previous state
         cart: {
           ...state.cart, // keep previous state
-          cartItems: [],
+          cartItems: [], // empty array
         },
       };
     /* case action.type is 'USER_SIGNIN' */
