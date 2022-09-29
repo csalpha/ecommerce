@@ -97,7 +97,7 @@ hr {
 .side-navbar {
   width: 150px;
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 6%;
   left: 0;
   z-index: 1;
