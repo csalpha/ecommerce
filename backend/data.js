@@ -1,9 +1,11 @@
+// import
 import bcrypt from 'bcryptjs';
 
+// data ( object )
 const data = {
-
+  // users - array of objects
   users:
-    [
+  [
       {
         name: 'Carlos',
         email: 'carlos@mail.com',
@@ -53,9 +55,11 @@ const data = {
         isAdmin: false,
         isSeller: false
       }
-    ],
+  ],
 
-  products: [
+  // products - array of objects
+  products: 
+  [
     {
       name: 'PS5 Digital Edition',
       slug: 'ps5-digital-edition',
@@ -119,4 +123,5 @@ const data = {
   ]
 }
 
+// export
 export default data;
