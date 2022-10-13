@@ -1,7 +1,10 @@
 import jwt from 'jsonwebtoken';
 import mg from 'mailgun-js';
 
-export const generateToken = (user) => {
+// define generateToken
+export const generateToken = (
+  user // arg: user ( object )
+) => {
   return jwt.sign(
     {
       _id: user._id,
